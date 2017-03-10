@@ -1,0 +1,10 @@
+html {
+  font-size: $base-font-size;
+}
+
+body {
+  background-color: $lt-grey;
+  color: $black;
+  font-family: $base-font-stack;
+  font-size: inherit;
+}

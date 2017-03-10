@@ -1,0 +1,40 @@
+/*
+Vertical Rhythm
+*** This method uses top and bottom margins to adjust type down to the baseline. Use the padding() mixin to add whitespace between elements.
+*/
+
+/*
+Instructions:
+1) Set base font size
+2) Determine base line-height
+3) Find cap height of body and headline fonts (map by size).
+4) When setting font-size for the element, call baseline() mixin:
+   Example: @include baseline((target font size/$base-font-size), 'sm');
+*/
+
+$base-font-size: 16;
+$base-line-height: 1.5;
+$cap-height: (
+  sm: 0.9,
+  lg: 0.75
+);
+
+@mixin baseline($font-size, $cap-size) {
+
+  // number of baselines
+  $lines: ceil($font-size / $base-line-height);
+
+  // calculate new line-height
+  $line-height: $base-line-height * $lines / $font-size;
+
+  // add font-size and line-height to css
+  font-size: $font-size+em;
+  line-height: $line-height;
+
+  // calculate baseline offset
+  $offset: ($line-height - map-get($cap-height, $cap-size)) / 2;
+
+  margin-bottom: -$offset+em;
+  margin-top: $offset+em;
+
+}

@@ -1,0 +1,58 @@
+/*
+Global Helper & Layout Classes
+*/
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@mixin padding($top, $bottom) {
+  padding-bottom: ($bottom * $base-line-height)+rem;
+  padding-top: ($top * $base-line-height)+rem;
+}
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.img-responsive {
+  display: block;
+  width: 100%;
+}
+
+// Layout
+.l-pad-top {
+  @include padding(1, 0);
+}
+
+.l-pad-bottom {
+  @include padding(0, 1);
+}
+
+.l-pad {
+  @include padding(1, 1);
+}
+
+.l-no-pad {
+  padding: 0;
+}
+
+.l-list-bullets {
+  list-style-type: circle;
+  padding-left: $pad;
+}
