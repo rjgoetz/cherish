@@ -957,6 +957,19 @@ Global Helper & Layout Classes
   display: block;
   width: 100%; }
 
+.list-bullets {
+  list-style-type: circle;
+  padding-left: 15px; }
+
+.text-bold {
+  font-weight: bold; }
+
+.text-small {
+  font-size: 0.75em;
+  line-height: 2;
+  margin-bottom: -0.55em;
+  margin-top: 0.55em; }
+
 .l-pad-top {
   padding-bottom: 0rem;
   padding-top: 1.5rem; }
@@ -972,17 +985,56 @@ Global Helper & Layout Classes
 .l-no-pad {
   padding: 0; }
 
-.l-list-bullets {
-  list-style-type: circle;
-  padding-left: 15px; }
+.l-float-left {
+  float: left; }
+
+.l-float-right {
+  float: right; }
 
 html {
   font-size: 16; }
 
 body {
-  background-color: #EEEEEE;
+  background-color: #EEE;
   color: #212121;
-  font-family: "Helvetica Neu", Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: inherit; }
+
+p {
+  font-size: 1em;
+  line-height: 1.5;
+  margin-bottom: -0.3em;
+  margin-top: 0.3em; }
+
+.page-header {
+  background-color: #FAFAFA;
+  height: 3em; }
+
+.logo {
+  font-size: 1.75em;
+  line-height: 1.71429;
+  margin-bottom: -0.48214em;
+  margin-top: 0.48214em;
+  color: #00BFA5;
+  font-family: "Dancing Script", cursive;
+  margin: 0;
+  text-align: center;
+  text-shadow: 0px 2px 2px #E0F2F1; }
+
+.panel-header {
+  background-color: #FAFAFA;
+  border-top: 1px solid #BDBDBD;
+  height: 3em; }
+  .panel-header p {
+    padding-bottom: 0rem;
+    padding-top: 0.75rem;
+    display: inline-block;
+    margin: 0 0.75em; }
+
+.profile-thb {
+  background-color: #00BFA5;
+  display: inline-block;
+  height: 100%;
+  width: 3em; }
 
 /*# sourceMappingURL=style.css.map */

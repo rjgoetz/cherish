@@ -1,7 +1,10 @@
-<h1>Hello Cherish</h1>
-<p>Your family moments.</p>
-<ul>
-  <li>Photos</li>
-  <li>Family</li>
-  <li>Share</li>
-</ul>
+<div class="panel">
+  <div class="panel-header clearfix">
+    <div class="profile-thb l-float-left"></div>
+    <p class="text-bold l-float-left">Harold</p>
+    <p class="text-small l-float-right">March 14, 2017</p>
+  </div>
+  <div class="panel-body">
+    <img class="img-responsive" src="public/img/harold-lake-superior.jpg" alt="Harold Lake Superior">
+  </div>
+</div>

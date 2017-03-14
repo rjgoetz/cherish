@@ -8,3 +8,39 @@ body {
   font-family: $base-font-stack;
   font-size: inherit;
 }
+
+p {
+  @include baseline(1, 'sm');
+}
+
+.page-header {
+  background-color: $off-white;
+  height: $base-line-height*2em;
+}
+
+.logo {
+  @include baseline(28/$base-font-size, 'lg');
+  color: $green;
+  font-family: $logo-font;
+  margin: 0;
+  text-align: center;
+  text-shadow: 0px 2px 2px $lt-green;
+}
+
+.panel-header {
+  background-color: $off-white;
+  border-top: 1px solid $md-grey;
+  height: $base-line-height*2em;
+  p {
+    @include padding(0.5, 0);
+    display: inline-block;
+    margin: 0 $base-line-height*0.5em;
+  }
+}
+
+.profile-thb {
+  background-color: $green;
+  display: inline-block;
+  height: 100%;
+  width: $base-line-height*2em;
+}

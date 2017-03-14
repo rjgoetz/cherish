@@ -35,6 +35,19 @@ Global Helper & Layout Classes
   width: 100%;
 }
 
+.list-bullets {
+  list-style-type: circle;
+  padding-left: $pad;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-small {
+  @include baseline(12/$base-font-size, 'sm');
+}
+
 // Layout
 .l-pad-top {
   @include padding(1, 0);
@@ -52,7 +65,10 @@ Global Helper & Layout Classes
   padding: 0;
 }
 
-.l-list-bullets {
-  list-style-type: circle;
-  padding-left: $pad;
+.l-float-left {
+  float: left;
+}
+
+.l-float-right {
+  float: right;
 }
