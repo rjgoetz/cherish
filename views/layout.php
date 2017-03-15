@@ -31,7 +31,7 @@
 
     <a href="<?php echo $SERVER['PHP_SELF'] . 'index.php?controller=photos&action=index'; ?>"><i class="material-icons l-float-left <?php if ($controller == 'photos') { echo 'active'; } ?>">add_a_photo</i></a>
 
-    <a href=""><i class="material-icons l-float-left">person</i></a>
+    <a href="<?php echo $SERVER['PHP_SELF'] . 'index.php?controller=profile&action=index'; ?>"><i class="material-icons l-float-left <?php if ($controller == 'profile') { echo 'active'; } ?>">person</i></a>
   </footer>
 </body>
 </html>
