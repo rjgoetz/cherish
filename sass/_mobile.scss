@@ -13,6 +13,10 @@ main {
   @include padding(2, 2);
 }
 
+h2 {
+  @include baseline(20/$base-font-size, 'sm');
+}
+
 p {
   @include baseline(1, 'sm');
 }
@@ -104,6 +108,44 @@ a {
   }
   &:first-of-type {
     margin-top: $base-line-height*0.5em;
+  }
+}
+
+form {
+  @include padding(1, 1);
+  margin-top: $base-line-height*2em;
+}
+
+.form-group {
+  margin-bottom: $base-line-height*1em;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+}
+
+.input-file {
+  @extend .visuallyhidden;
+}
+
+.btn {
+  @include padding(0.5, 0.5);
+  background-color: $green;
+  box-shadow: 0px 3px 6px -2px $md-grey;
+  color: $white;
+  font-weight: bold;
+  padding-left: $pad;
+  padding-right: $pad;
+  margin: auto;
+  width: 50%;
+}
+
+.choose-kids-bar {
+  @include padding(1, 1);
+  height: $base-line-height*4em;
+  div {
+    margin-right: 10px;
   }
 }
 

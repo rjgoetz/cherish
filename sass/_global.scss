@@ -52,6 +52,10 @@ Global Helper & Layout Classes
   color: $red;
 }
 
+.text-white {
+  color: $white;
+}
+
 .text-sm {
   @include baseline(14/$base-font-size, 'sm');
 }
@@ -60,11 +64,27 @@ Global Helper & Layout Classes
   @include baseline(11/$base-font-size, 'sm');
 }
 
+.text-center {
+  text-align: center;
+}
+
 .border-bottom {
   border-bottom: 1px solid $md-grey;
 }
 
 // Layout
+.l-block {
+  display: block;
+}
+
+.l-relative {
+  position: relative;
+}
+
+.l-absolute {
+  position: absolute;
+}
+
 .l-pad-top {
   @include padding(1, 0);
 }

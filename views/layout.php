@@ -29,7 +29,7 @@
 
     <a href="<?php echo $SERVER['PHP_SELF'] . 'index.php?controller=activity&action=index'; ?>"><i class="material-icons l-float-left <?php if ($controller == 'activity') { echo 'active'; } ?>">comment</i></a>
 
-    <a href=""><i class="material-icons l-float-left">add_a_photo</i></a>
+    <a href="<?php echo $SERVER['PHP_SELF'] . 'index.php?controller=photos&action=index'; ?>"><i class="material-icons l-float-left <?php if ($controller == 'photos') { echo 'active'; } ?>">add_a_photo</i></a>
 
     <a href=""><i class="material-icons l-float-left">person</i></a>
   </footer>
