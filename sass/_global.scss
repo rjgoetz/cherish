@@ -48,12 +48,20 @@ Global Helper & Layout Classes
   color: $md-grey;
 }
 
+.text-red {
+  color: $red;
+}
+
 .text-sm {
   @include baseline(14/$base-font-size, 'sm');
 }
 
 .text-xs {
   @include baseline(11/$base-font-size, 'sm');
+}
+
+.border-bottom {
+  border-bottom: 1px solid $md-grey;
 }
 
 // Layout

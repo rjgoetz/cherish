@@ -9,6 +9,9 @@ function get_page($controller, $action) {
      case 'home':
        $a = new HomeController;
        break;
+     case 'activity':
+       $a = new ActivityController;
+       break;
   }
 
   // run action method
@@ -16,7 +19,8 @@ function get_page($controller, $action) {
 }
 
 // list of controllers and actions
-$controllers = array('home' => ['index', 'error']);
+$controllers = array('home' => ['index', 'error'],
+                     'activity' => ['index']);
 
 // find controller and action, retrieve page
 if (array_key_exists($controller, $controllers)) {

@@ -967,6 +967,9 @@ Global Helper & Layout Classes
 .text-grey {
   color: #BDBDBD; }
 
+.text-red {
+  color: #F50057; }
+
 .text-sm {
   font-size: 0.875em;
   line-height: 1.71429;
@@ -978,6 +981,9 @@ Global Helper & Layout Classes
   line-height: 2.18182;
   margin-bottom: -0.64091em;
   margin-top: 0.64091em; }
+
+.border-bottom {
+  border-bottom: 1px solid #BDBDBD; }
 
 .l-pad-top {
   padding-bottom: 0rem;
@@ -1004,7 +1010,7 @@ html {
   font-size: 16; }
 
 body {
-  background-color: #EEE;
+  background-color: #F5F5F5;
   color: #212121;
   font-family: "Source Sans Pro", sans-serif;
   font-size: inherit; }
@@ -1018,6 +1024,9 @@ p {
   line-height: 1.5;
   margin-bottom: -0.3em;
   margin-top: 0.3em; }
+
+a {
+  text-decoration: none; }
 
 .page-header {
   background-color: #FFF;
@@ -1054,16 +1063,40 @@ p {
   padding-left: 15px;
   padding-right: 15px; }
 
+.panel-comments p {
+  line-height: 1.4; }
+
 .panel-action i {
   margin-right: 15px; }
 .panel-action .active {
   color: #F50057; }
 
-.profile-thb {
+.profile-thb, .profile-thb-activity {
   background-color: #00BFA5;
   display: inline-block;
   height: 100%;
   width: 3em; }
+
+.profile-thb-activity {
+  height: 3em;
+  width: 3em; }
+
+.activity {
+  padding-bottom: 0.75rem;
+  padding-top: 0.75rem; }
+  .activity i {
+    width: 3rem; }
+  .activity p {
+    line-height: 1.4;
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 66%; }
+  .activity img {
+    height: 3em;
+    width: auto; }
+  .activity:first-of-type {
+    margin-top: 0.75em; }
 
 .page-footer {
   background-color: #37474F;
@@ -1072,6 +1105,9 @@ p {
   height: 3em;
   position: fixed;
   width: 100%; }
+  .page-footer a {
+    height: 100%;
+    width: 100%; }
   .page-footer i {
     color: #FFF;
     padding-top: 8px;

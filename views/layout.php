@@ -14,7 +14,7 @@
   <header class="page-header">
     <div class="row">
       <div class="col-xs-12">
-        <h1 class="logo">Cherish</h1>
+        <a href="<?php echo $SERVER['PHP_SELF'] . 'index.php'; ?>"><h1 class="logo">Cherish</h1></a>
       </div>
     </div>
   </header>
@@ -25,10 +25,13 @@
   </main>
 
   <footer class="page-footer clearfix">
-    <i class="material-icons l-float-left active">home</i>
-    <i class="material-icons l-float-left">comment</i>
-    <i class="material-icons l-float-left">add_a_photo</i>
-    <i class="material-icons l-float-left">person</i>
+    <a href="<?php echo $SERVER['PHP_SELF'] . 'index.php'; ?>"><i class="material-icons l-float-left <?php if ($controller == 'home') { echo 'active'; } ?>">home</i></a>
+
+    <a href="<?php echo $SERVER['PHP_SELF'] . 'index.php?controller=activity&action=index'; ?>"><i class="material-icons l-float-left <?php if ($controller == 'activity') { echo 'active'; } ?>">comment</i></a>
+
+    <a href=""><i class="material-icons l-float-left">add_a_photo</i></a>
+
+    <a href=""><i class="material-icons l-float-left">person</i></a>
   </footer>
 </body>
 </html>
