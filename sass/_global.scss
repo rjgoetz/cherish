@@ -44,8 +44,16 @@ Global Helper & Layout Classes
   font-weight: bold;
 }
 
-.text-small {
-  @include baseline(12/$base-font-size, 'sm');
+.text-grey {
+  color: $md-grey;
+}
+
+.text-sm {
+  @include baseline(14/$base-font-size, 'sm');
+}
+
+.text-xs {
+  @include baseline(11/$base-font-size, 'sm');
 }
 
 // Layout

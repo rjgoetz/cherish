@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Cherish your family moments.</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Dancing+Script:700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
   <link rel="stylesheet" href="public/css/style.css">
@@ -22,5 +23,12 @@
   <?php require_once('routes/index.php'); ?>
 
   </main>
+
+  <footer class="page-footer clearfix">
+    <i class="material-icons l-float-left active">home</i>
+    <i class="material-icons l-float-left">comment</i>
+    <i class="material-icons l-float-left">add_a_photo</i>
+    <i class="material-icons l-float-left">person</i>
+  </footer>
 </body>
 </html>

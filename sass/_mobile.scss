@@ -9,13 +9,20 @@ body {
   font-size: inherit;
 }
 
+main {
+  @include padding(2, 2);
+}
+
 p {
   @include baseline(1, 'sm');
 }
 
 .page-header {
-  background-color: $off-white;
+  background-color: $white;
+  box-shadow: 0px 3px 6px -3px $md-grey;
   height: $base-line-height*2em;
+  position: fixed;
+  width: 100%;
 }
 
 .logo {
@@ -27,14 +34,32 @@ p {
   text-shadow: 0px 2px 2px $lt-green;
 }
 
+.panel {
+  background-color: $white;
+  box-shadow: 0px 3px 6px -3px $md-grey;
+  margin-bottom: $base-line-height*1em;
+}
+
 .panel-header {
-  background-color: $off-white;
-  border-top: 1px solid $md-grey;
   height: $base-line-height*2em;
   p {
     @include padding(0.5, 0);
     display: inline-block;
-    margin: 0 $base-line-height*0.5em;
+    margin: 0 $pad;
+  }
+}
+
+.panel-comments, .panel-action {
+  padding-left: $pad;
+  padding-right: $pad;
+}
+
+.panel-action {
+  i {
+    margin-right: $pad;
+  }
+  .active {
+    color: $red;
   }
 }
 
@@ -43,4 +68,23 @@ p {
   display: inline-block;
   height: 100%;
   width: $base-line-height*2em;
+}
+
+.page-footer {
+  background-color: $dk-grey-blue;
+  bottom: 0;
+  box-shadow: 0px -2px 4px -2px $md-grey;
+  height: $base-line-height*2em;
+  position: fixed;
+  width: 100%;
+  i {
+    color: $white;
+    padding-top: 8px;
+    font-size: 32px;
+    text-align: center;
+    width: 25%;
+  }
+  .active {
+    color: $green;
+  }
 }

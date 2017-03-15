@@ -964,11 +964,20 @@ Global Helper & Layout Classes
 .text-bold {
   font-weight: bold; }
 
-.text-small {
-  font-size: 0.75em;
-  line-height: 2;
-  margin-bottom: -0.55em;
-  margin-top: 0.55em; }
+.text-grey {
+  color: #BDBDBD; }
+
+.text-sm {
+  font-size: 0.875em;
+  line-height: 1.71429;
+  margin-bottom: -0.40714em;
+  margin-top: 0.40714em; }
+
+.text-xs {
+  font-size: 0.6875em;
+  line-height: 2.18182;
+  margin-bottom: -0.64091em;
+  margin-top: 0.64091em; }
 
 .l-pad-top {
   padding-bottom: 0rem;
@@ -1000,6 +1009,10 @@ body {
   font-family: "Source Sans Pro", sans-serif;
   font-size: inherit; }
 
+main {
+  padding-bottom: 3rem;
+  padding-top: 3rem; }
+
 p {
   font-size: 1em;
   line-height: 1.5;
@@ -1007,8 +1020,11 @@ p {
   margin-top: 0.3em; }
 
 .page-header {
-  background-color: #FAFAFA;
-  height: 3em; }
+  background-color: #FFF;
+  box-shadow: 0px 3px 6px -3px #BDBDBD;
+  height: 3em;
+  position: fixed;
+  width: 100%; }
 
 .logo {
   font-size: 1.75em;
@@ -1021,20 +1037,48 @@ p {
   text-align: center;
   text-shadow: 0px 2px 2px #E0F2F1; }
 
+.panel {
+  background-color: #FFF;
+  box-shadow: 0px 3px 6px -3px #BDBDBD;
+  margin-bottom: 1.5em; }
+
 .panel-header {
-  background-color: #FAFAFA;
-  border-top: 1px solid #BDBDBD;
   height: 3em; }
   .panel-header p {
     padding-bottom: 0rem;
     padding-top: 0.75rem;
     display: inline-block;
-    margin: 0 0.75em; }
+    margin: 0 15px; }
+
+.panel-comments, .panel-action {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.panel-action i {
+  margin-right: 15px; }
+.panel-action .active {
+  color: #F50057; }
 
 .profile-thb {
   background-color: #00BFA5;
   display: inline-block;
   height: 100%;
   width: 3em; }
+
+.page-footer {
+  background-color: #37474F;
+  bottom: 0;
+  box-shadow: 0px -2px 4px -2px #BDBDBD;
+  height: 3em;
+  position: fixed;
+  width: 100%; }
+  .page-footer i {
+    color: #FFF;
+    padding-top: 8px;
+    font-size: 32px;
+    text-align: center;
+    width: 25%; }
+  .page-footer .active {
+    color: #00BFA5; }
 
 /*# sourceMappingURL=style.css.map */
