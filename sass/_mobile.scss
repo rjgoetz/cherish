@@ -13,8 +13,12 @@ main {
   @include padding(2, 2);
 }
 
+h1 {
+  @include baseline(30/$base-font-size, 'lg');
+}
+
 h2 {
-  @include baseline(20/$base-font-size, 'sm');
+  @include baseline(22/$base-font-size, 'sm');
 }
 
 p {
@@ -22,6 +26,7 @@ p {
 }
 
 a {
+  color: $green;
   text-decoration: none;
 }
 
@@ -40,6 +45,20 @@ a {
   margin: 0;
   text-align: center;
   text-shadow: 0px 2px 1px rgba($black, 0.2);
+}
+
+.alert-error {
+  @include padding(0.5, 0.5);
+  margin-top: $base-line-height*1em;
+  color: $white;
+  background-color: $lt-red;
+  padding-left: $pad;
+  padding-right: $pad;
+}
+
+.alert-success {
+  @extend .alert-error;
+  background-color: $green;
 }
 
 .panel {
@@ -151,7 +170,6 @@ input {
   background-color: $green;
   box-shadow: 0px 3px 6px -1px rgba($black, 0.39);
   color: $white;
-  font-weight: bold;
   padding-left: $pad;
   padding-right: $pad;
   margin: auto;
@@ -173,16 +191,15 @@ input {
   height: $base-line-height*2em;
   position: fixed;
   width: 100%;
-  a {
-    height: 100%;
-    width: 100%;
+  .footer-link {
+    width: 25%;
   }
   i {
     color: $white;
     padding-top: 8px;
     font-size: 32px;
     text-align: center;
-    width: 25%;
+    width: 100%;
   }
   .active {
     color: $green;

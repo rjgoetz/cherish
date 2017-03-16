@@ -964,11 +964,14 @@ Global Helper & Layout Classes
 .text-bold {
   font-weight: bold; }
 
+.text-regular {
+  font-weight: normal; }
+
 .text-grey {
   color: #BDBDBD; }
 
 .text-red {
-  color: #F50057; }
+  color: #EF5350; }
 
 .text-white {
   color: #FFF; }
@@ -1034,11 +1037,17 @@ main {
   padding-bottom: 3rem;
   padding-top: 3rem; }
 
+h1 {
+  font-size: 1.875em;
+  line-height: 1.6;
+  margin-bottom: -0.425em;
+  margin-top: 0.425em; }
+
 h2 {
-  font-size: 1.25em;
-  line-height: 1.2;
-  margin-bottom: -0.15em;
-  margin-top: 0.15em; }
+  font-size: 1.375em;
+  line-height: 1.09091;
+  margin-bottom: -0.09545em;
+  margin-top: 0.09545em; }
 
 p {
   font-size: 1em;
@@ -1047,6 +1056,7 @@ p {
   margin-top: 0.3em; }
 
 a {
+  color: #00BFA5;
   text-decoration: none; }
 
 .page-header {
@@ -1066,6 +1076,18 @@ a {
   margin: 0;
   text-align: center;
   text-shadow: 0px 2px 1px rgba(33, 33, 33, 0.2); }
+
+.alert-error, .alert-success {
+  padding-bottom: 0.75rem;
+  padding-top: 0.75rem;
+  margin-top: 1.5em;
+  color: #FFF;
+  background-color: #E57373;
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.alert-success {
+  background-color: #00BFA5; }
 
 .panel {
   background-color: #FFF;
@@ -1090,7 +1112,7 @@ a {
 .panel-action i {
   margin-right: 15px; }
 .panel-action .active {
-  color: #F50057; }
+  color: #EF5350; }
 
 .profile-thb, .profile-thb-activity {
   background-color: #00BFA5;
@@ -1152,7 +1174,6 @@ input {
   background-color: #00BFA5;
   box-shadow: 0px 3px 6px -1px rgba(33, 33, 33, 0.39);
   color: #FFF;
-  font-weight: bold;
   padding-left: 15px;
   padding-right: 15px;
   margin: auto;
@@ -1172,15 +1193,14 @@ input {
   height: 3em;
   position: fixed;
   width: 100%; }
-  .page-footer a {
-    height: 100%;
-    width: 100%; }
+  .page-footer .footer-link {
+    width: 25%; }
   .page-footer i {
     color: #FFF;
     padding-top: 8px;
     font-size: 32px;
     text-align: center;
-    width: 25%; }
+    width: 100%; }
   .page-footer .active {
     color: #00BFA5; }
 

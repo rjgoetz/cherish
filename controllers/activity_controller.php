@@ -1,9 +1,9 @@
 <?php
 
-  class ActivityController {
+  class ActivityController extends BaseController {
 
     public function index() {
-      require_once('views/activity.php');
+      $this->build_page('activity');
     }
 
   }

@@ -1,9 +1,9 @@
 <?php
 
-  class PhotosController {
+  class PhotosController extends BaseController {
 
     public function index() {
-      require_once('views/photos.php');
+      $this->build_page('photos');
     }
 
   }

@@ -1,13 +1,13 @@
 <?php
 
-class HomeController {
+class HomeController extends BaseController {
 
   public function index() {
-    require_once('views/home.php');
+    $this->build_page('home');
   }
 
   public function error() {
-    require_once('views/error.php');
+    $this->build_page('error');
   }
 
 }
