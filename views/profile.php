@@ -33,7 +33,11 @@
           <div class="profile-thb"></div>
         </div>
 
-        <a href="<?php echo $_SERVER['PHP_SELF'] . 'index.php?controller=profile&action=kid'; ?>" class="clearfix btn l-block text-center">Add Kid</a>
+        <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=profile&action=kid'; ?>" class="btn l-block">Add Kid</a>
+      </section>
+
+      <section class="l-pad">
+        <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=user&action=logout'; ?>" class="btn btn-wide clearfix l-block"><i class="material-icons l-float-left">exit_to_app</i>Log Out</a>
       </section>
 
     </div>

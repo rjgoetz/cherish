@@ -1152,7 +1152,8 @@ label {
 
 button {
   border: none;
-  display: block; }
+  display: block;
+  font-family: "Source Sans Pro", sans-serif; }
 
 input {
   padding: 10px;
@@ -1174,10 +1175,17 @@ input {
   background-color: #00BFA5;
   box-shadow: 0px 3px 6px -1px rgba(33, 33, 33, 0.39);
   color: #FFF;
+  display: block;
+  font-weight: normal;
   padding-left: 15px;
   padding-right: 15px;
   margin: auto;
+  text-align: center;
   width: 50%; }
+
+.btn-wide {
+  background-color: #EF5350;
+  width: 100%; }
 
 .choose-kids-bar {
   padding-bottom: 1.5rem;

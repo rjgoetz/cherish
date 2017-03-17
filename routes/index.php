@@ -29,7 +29,7 @@ function get_page($controller, $action) {
 $controllers = array('home' => ['index', 'error'],
                      'activity' => ['index'],
                      'photos' => ['index'],
-                     'user' => ['signin', 'signup', 'profile']);
+                     'user' => ['signin', 'signup', 'profile', 'logout']);
 
 // find controller and action, retrieve page
 if (array_key_exists($controller, $controllers)) {

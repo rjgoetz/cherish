@@ -15,7 +15,13 @@
       </div>
 
       <div class="col-xs-3">
-        <a href="<?php echo $SERVER['PHP_SELF'] . 'index.php?controller=user&action=profile'; ?>"><i class="material-icons l-float-left <?php if ($this->controller == 'user') { echo 'active'; } ?>">person</i></a>
+        <a href="<?php
+          if (isset($_SESSION['userid'])) {
+            echo $SERVER['PHP_SELF'] . 'index.php?controller=user&action=profile';
+          } else {
+            echo $SERVER['PHP_SELF'] . 'index.php?controller=user&action=signin';
+          }
+        ?>"><i class="material-icons l-float-left <?php if ($this->controller == 'user') { echo 'active'; } ?>">person</i></a>
       </div>
     </div>
   </footer>

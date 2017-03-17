@@ -70,7 +70,6 @@
     }
 
     public function signin() {
-
       // check form was submitted
       if (!isset($_POST['submitted'])) {
 
@@ -200,6 +199,22 @@
       } else {
         // not logged in
         $this->alert('You are not logged in. Please log in.', 'error');
+        $this->redirect('user', 'signin');
+      }
+    }
+
+    public function logout() {
+      if (isset($_SESSION['userid'])) {
+        // reset session variable
+        $_SESSION = array();
+
+        if (isset($_COOKIE['userid'])) {
+          // setcookie to expire
+          setcookie('userid', '', 1);
+        }
+
+        // redirect to sign in
+        $this->alert('You are logged out.', 'success');
         $this->redirect('user', 'signin');
       }
     }
