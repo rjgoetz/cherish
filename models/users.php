@@ -3,9 +3,13 @@
   class User {
 
     public $userid;
+    public $name;
+    public $email;
 
-    public function __construct($userid) {
+    public function __construct($userid, $name, $email) {
       $this->userid = $userid;
+      $this->name = $name;
+      $this->email = $email;
     }
 
     public static function duplicate_user($email) {
@@ -24,6 +28,8 @@
       // check for duplicate email
       if (mysqli_num_rows($data) > 0) {
         return true;
+      } else {
+        return false;
       }
     }
 
@@ -41,7 +47,7 @@
       mysqli_close($dbc);
     }
 
-    public static function auth($email, $password) {
+    public static function auth_user($email, $password) {
       // connect database
       require('db.php');
 
@@ -57,11 +63,11 @@
       // check user exists
       if (mysqli_num_rows($data) > 0) {
 
-        // verify password
         $row = mysqli_fetch_array($data);
 
+        // verify password
         if (password_verify($password, $row['password'])) {
-          $user = new User($row['userid']);
+          $user = new User($row['userid'], $row['name'], $row['email']);
           return $user;
         } else {
           return 'unauthorized';
@@ -69,6 +75,46 @@
       } else {
         return 'not found';
       }
+    }
+
+    public static function retrieve_user($userid) {
+      // connect database
+      require('models/db.php');
+
+      // build query
+      $query = "SELECT name, email FROM users WHERE userid='$userid'";
+
+      // create data
+      $data = mysqli_query($dbc, $query);
+
+      // close db connection
+      mysqli_close($dbc);
+
+      // check user exists
+      if (mysqli_num_rows($data) > 0) {
+        $row = mysqli_fetch_array($data);
+
+        $user = new User($userid, $row['name'], $row['email']);
+        return $user;
+      } else {
+        return false;
+      }
+    }
+
+    public static function update_user($userid, $name, $email) {
+      // connect database
+      require('models/db.php');
+
+      // build query
+      $query = "UPDATE users SET name='$name', email='$email' WHERE userid='$userid'";
+
+      // create data
+      $data = mysqli_query($dbc, $query);
+
+      // close db connection
+      mysqli_close($dbc);
+
+      return $data;
     }
 
   } // end class

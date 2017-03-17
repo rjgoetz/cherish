@@ -8,7 +8,7 @@
       $this->controller = $controller;
     }
 
-    function alert($msg, $type) {
+    public function alert($msg, $type) {
       switch ($type) {
         case 'error':
           $alert = '<div id="flash" class="alert-error">';
@@ -24,7 +24,7 @@
       $_SESSION['flash'] = $alert;
     }
 
-    public function build_page($page) {
+    public function build_page($page, $data = false) {
       require_once('views/header.php');
       require_once('views/' . $page . '.php');
       require_once('views/footer.php');
