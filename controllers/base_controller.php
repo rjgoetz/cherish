@@ -11,10 +11,10 @@
     function alert($msg, $type) {
       switch ($type) {
         case 'error':
-          $alert = '<div class="alert-error">';
+          $alert = '<div id="flash" class="alert-error">';
           break;
         case 'success':
-          $alert = '<div class="alert-success">';
+          $alert = '<div id="flash" class="alert-success">';
           break;
       }
 
@@ -30,7 +30,7 @@
       require_once('views/footer.php');
 
       // unset flash from session
-      unset($_SESSION['flash']);      
+      unset($_SESSION['flash']);
     }
 
     public function route($controller, $action) {

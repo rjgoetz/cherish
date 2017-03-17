@@ -2,10 +2,6 @@
 
   class UserController extends BaseController {
 
-    public function signin() {
-      $this->build_page('signin');
-    }
-
     public function signup() {
 
       // check form was submitted
@@ -35,7 +31,7 @@
 
         // validate email field
         if (!preg_match('/^[a-zA-Z0-9][a-zA-Z0-9\._\-&!?=#]*@/', $email)) {
-          $this->build_page('signup', $this->alert('Email is invalid.', 'error'));
+          $this->build_page('signup', $this->alert('Email is invalid format.', 'error'));
         }
 
         // check passwords match
@@ -47,26 +43,79 @@
         if (!preg_match('/^([a-zA-Z0-9@$!%*#?&]){6,}$/', $password)) {
           $this->build_page('signup', $this->alert('Password must be at least 6 characters long and contain letters, numbers, or symbols @$!%*#?&', 'error'));
         } else {
+          // check for duplicate user
+          $duplicate = User::duplicate_user($email);
 
-          // connect database
-          require_once('models/db.php');
+          if ($duplicate) {
+            $this->build_page('signup', $this->alert('The email address you provided is already in the database.', 'error'));
+          } else {
+            // encrypt password
+            $options = ['cost' => 12];
+            $password = password_hash($password, PASSWORD_BCRYPT, $options);
 
-          // build query
-          $query = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
+            // add user to DB
+            // $user->add_user($name, $email, $password);
+            User::add_user($name, $email, $password);
 
-          // add user to database
-          mysqli_query($dbc, $query);
+            // redirect
+            $this->alert('Welcome to Cherish! Please sign in.', 'success');
+            $this->redirect('user', 'signin');
+          }
+        }
+      }
+    }
 
-          // close db connection
-          mysqli_close($dbc);
+    public function signin() {
 
-          $this->alert('Welcome to Cherish! Please sign in.', 'success');
-          $this->redirect('user', 'signin');
+      // check form was submitted
+      if (!isset($_POST['submitted'])) {
 
+        // not submitted
+        $this->build_page('signin');
+      } else {
+
+        // check fields are not empty
+        if (!isset($_POST['email']) || empty($_POST['email']) || !isset($_POST['password']) || empty($_POST['password'])) {
+          $this->alert('Please complete all the fields.', 'error');
+          $this->build_page('signin');
+        } else {
+          // save form data
+          $email = $_POST['email'];
+          $password = $_POST['password'];
         }
 
-      }
+        // validate email field
+        if (!preg_match('/^[a-zA-Z0-9][a-zA-Z0-9\._\-&!?=#]*@/', $email)) {
+          $this->build_page('signin', $this->alert('Email is invalid.', 'error'));
+        }
 
+        // validate password
+        if (!preg_match('/^([a-zA-Z0-9@$!%*#?&]){6,}$/', $password)) {
+          $this->build_page('signin', $this->alert('Password must be at least 6 characters long and contain letters, numbers, or symbols @$!%*#?&', 'error'));
+        } else {
+
+          // authorize user
+          $user = User::auth($email, $password);
+
+          switch($user) {
+            case 'unauthorized':
+              $this->build_page('signin', $this->alert('Password is incorrect. Try again.', 'error'));
+              break;
+            case 'not found':
+              $this->build_page('signin', $this->alert('Email address not found.', 'error'));
+              break;
+            default:
+              // set session and cookie data
+              $_SESSION['userid'] = $user->userid;
+              setcookie('userid', $user->userid, time() + 365*24*60*60);
+
+              // redirect user home
+              $this->alert('You successfully signed in.', 'success');
+              $this->redirect('home', 'index');
+              break;
+          }
+        }
+      }
     }
 
     public function profile() {

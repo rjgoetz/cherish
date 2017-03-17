@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+if (isset($_COOKIE['userid'])) {
+  $_SESSION['userid'] = $_COOKIE['userid'];
+}
+
 require_once('controllers/base_controller.php');
 
 if (isset($_GET['controller']) || isset($_GET['action'])) {

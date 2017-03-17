@@ -31,6 +31,7 @@
           <button type="submit" class="btn" name="submitted">Sign up</button>
         </form>
 
+        <p class="l-pad-bottom"><a href="<?php echo $_SERVER['PHP_SELF'] . '?&controller=user&action=signin'; ?>">Already have an account?<span class="l-block text-bold">Sign in here.</span></a></p>
       </section>
 
     </div>

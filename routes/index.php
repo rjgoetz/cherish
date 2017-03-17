@@ -16,6 +16,7 @@ function get_page($controller, $action) {
        $a = new PhotosController($controller);
        break;
      case 'user':
+       require_once('models/users.php');
        $a = new UserController($controller);
        break;
   }

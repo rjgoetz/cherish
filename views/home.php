@@ -1,3 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 l-pad-bottom">
+      <?php if ($_SESSION['flash']) { echo $_SESSION['flash']; } ?>
+    </div>
+  </div>
+</div>
+
 <div class="panel">
   <div class="panel-header clearfix">
     <div class="profile-thb l-float-left"></div>
