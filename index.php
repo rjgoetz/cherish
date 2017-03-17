@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once('controllers/base_controller.php');
 
@@ -12,8 +13,4 @@ if (isset($_GET['controller']) || isset($_GET['action'])) {
 
 $page = new BaseController($controller);
 
-if (http_response_code() === 301) {
-  $page->redirect($controller, $action);
-} else {
-  $page->route($controller, $action);
-}
+$page->route($controller, $action);

@@ -9,7 +9,6 @@
     }
 
     function alert($msg, $type) {
-
       switch ($type) {
         case 'error':
           $alert = '<div class="alert-error">';
@@ -22,13 +21,16 @@
       $alert .= $msg;
       $alert .= '</div>';
 
-      return $alert;
+      $_SESSION['flash'] = $alert;
     }
 
-    public function build_page($page, $alert = false) {
+    public function build_page($page) {
       require_once('views/header.php');
       require_once('views/' . $page . '.php');
       require_once('views/footer.php');
+
+      // unset flash from session
+      unset($_SESSION['flash']);      
     }
 
     public function route($controller, $action) {

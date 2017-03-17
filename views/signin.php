@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12">
 
-      <?php if ($alert) { echo $alert; } ?>
+      <?php if ($_SESSION['flash']) { echo $_SESSION['flash']; } ?>
 
       <section class="l-pad-top">
         <h2 class="border-bottom">Sign in</h2>

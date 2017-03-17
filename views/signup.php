@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12">
 
-      <?php if ($alert) { echo $alert; } ?>
+      <?php if ($_SESSION['flash']) { echo $_SESSION['flash']; } ?>
 
       <section class="l-pad-top">
         <h2 class="border-bottom">Sign up</h2>
@@ -10,12 +10,12 @@
         <form action="<?php echo $_SERVER['PHP_SELF'] . '?controller=user&action=signup'; ?>" method="post" role="form">
           <div class="form-group">
             <label for="name" class="l-block">Name</label>
-            <input type="name" id="name" name="name" class="form-control">
+            <input type="name" id="name" name="name" value="<?php echo $_POST['name']; ?>" class="form-control">
           </div>
 
           <div class="form-group">
             <label for="email" class="l-block">Email</label>
-            <input type="email" id="email" name="email" class="form-control" placeholder="youremail@domain.com">
+            <input type="email" id="email" name="email" class="form-control" value="<?php echo $_POST['email']; ?>">
           </div>
 
           <div class="form-group">
@@ -27,6 +27,7 @@
             <label for="password2" class="l-block">Confirm password</label>
             <input type="password" id="password2" name="password2" class="form-control">
           </div>
+
           <button type="submit" class="btn" name="submitted">Sign up</button>
         </form>
 
