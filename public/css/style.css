@@ -1077,6 +1077,9 @@ a {
   text-align: center;
   text-shadow: 0px 2px 1px rgba(33, 33, 33, 0.2); }
 
+#flash {
+  opacity: 1; }
+
 .alert-error, .alert-success {
   padding-bottom: 0.75rem;
   padding-top: 0.75rem;

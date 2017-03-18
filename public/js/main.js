@@ -5,33 +5,28 @@ function findElem(id) {
   return document.getElementById(id);
 }
 
-function setStyle(property, value, elem) {
-  if (elem) {
-    elem.setAttribute('style', property + ': ' + value);
+function setStyle(property, value, elm) {
+  if (elm) {
+    elm.setAttribute('style', property + ': ' + value);
   }
 }
 
-function fadeOut(id, value, timer) {
-  setStyle('opacity', value, findElem(id));
-  if (value < 0) {
-    clearInterval(timer);
-    setStyle('display', 'none', findElem(id));
-  }
+function fadeOut(elm, time) {
+  var value = 1;
+  var timer = setInterval(function() {
+    value -= 1/(time/35);
+    setStyle('opacity', value, elm);
+    if (value < 0) {
+      clearInterval(timer);
+      setStyle('display', 'none', elm);
+    }
+  }, 35);
 }
 
 // if flash message exists, animate fade out
-if (findElem('flash')) {
-  (function flashDisappear() {
-    // initialize opacity
-    var opacity = 1;
-
-    // set default element opacity
-    setStyle('opacity', opacity, findElem('flash'));
-
-    // create interval timer
-    var timer = setInterval(function() {
-      opacity -= 0.01;
-      fadeOut('flash', opacity, timer);
-    }, 35);
-  })();
-}
+(function flashDisappear() {
+  var elm = findElem('flash');
+  if (elm) {
+    fadeOut(elm, 3000);
+  }
+})();

@@ -47,6 +47,10 @@ a {
   text-shadow: 0px 2px 1px rgba($black, 0.2);
 }
 
+#flash {
+  opacity: 1;
+}
+
 .alert-error {
   @include padding(0.5, 0.5);
   margin-top: $base-line-height*1em;
