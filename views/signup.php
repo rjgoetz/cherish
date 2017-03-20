@@ -10,7 +10,7 @@
         <form action="<?php echo $_SERVER['PHP_SELF'] . '?controller=user&action=signup'; ?>" method="post" role="form">
           <div class="form-group">
             <label for="name" class="l-block">Name</label>
-            <input type="name" id="name" name="name" value="<?php echo $_POST['name']; ?>" class="form-control">
+            <input type="text" id="name" name="name" value="<?php echo $_POST['name']; ?>" class="form-control">
           </div>
 
           <div class="form-group">

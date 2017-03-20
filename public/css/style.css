@@ -943,7 +943,7 @@ Global Helper & Layout Classes
   display: table;
   clear: both; }
 
-.visuallyhidden, .input-file {
+.visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -1002,6 +1002,9 @@ Global Helper & Layout Classes
 
 .l-absolute {
   position: absolute; }
+
+.l-left {
+  left: 0; }
 
 .l-pad-top {
   padding-bottom: 0rem;
@@ -1158,7 +1161,7 @@ button {
   display: block;
   font-family: "Source Sans Pro", sans-serif; }
 
-input {
+input[type="text"], input[type="email"], input[type="password"] {
   padding: 10px;
   border: 1px solid transparent;
   border-top: none;
@@ -1183,8 +1186,7 @@ input {
   padding-left: 15px;
   padding-right: 15px;
   margin: auto;
-  text-align: center;
-  width: 50%; }
+  text-align: center; }
 
 .btn-wide {
   background-color: #EF5350;

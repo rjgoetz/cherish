@@ -9,13 +9,13 @@
 
         // not submitted
         $this->build_page('signup');
-
       } else {
 
         // check fields are not empty
-        if (!isset($_POST['name']) || empty($_POST['name']) || !isset($_POST['email']) || empty($_POST['email']) || !isset($_POST['password']) || empty($_POST['password']) || !isset($_POST['password2']) || empty($_POST['password2'])) {
+        if (empty($_POST['name']) || empty($_POST['email']) || empty($_POST['password']) || empty($_POST['password2'])) {
           $this->alert('Please complete all the fields.', 'error');
           $this->build_page('signup');
+          exit();
         } else {
           // save form data
           $name = $_POST['name'];
@@ -28,24 +28,28 @@
         if (!preg_match('/^[a-zA-Z\s]+$/', $name)) {
           $this->alert('Name cannot contain numbers or symbols.', 'error');
           $this->build_page('signup');
+          exit();
         }
 
         // validate email field
         if (!preg_match('/^[a-zA-Z0-9][a-zA-Z0-9\._\-&!?=#]*@/', $email)) {
           $this->alert('Email is invalid format.', 'error');
           $this->build_page('signup');
+          exit();
         }
 
         // check passwords match
         if ($password !== $password2) {
           $this->alert('Passwords do not match.', 'error');
           $this->build_page('signup');
+          exit();
         }
 
         // validate password
         if (!preg_match('/^([a-zA-Z0-9@$!%*#?&]){6,}$/', $password)) {
           $this->alert('Password must be at least 6 characters long and contain letters, numbers, or symbols @$!%*#?&', 'error');
           $this->build_page('signup');
+          exit();
         } else {
           // check for duplicate user
           $duplicate = User::duplicate_user($email);
@@ -53,17 +57,21 @@
           if ($duplicate) {
             $this->alert('The email address you provided is already in the database.', 'error');
             $this->build_page('signup');
+            exit();
           } else {
             // encrypt password
             $options = ['cost' => 12];
             $password = password_hash($password, PASSWORD_BCRYPT, $options);
 
-            // add user to DB
-            User::add_user($name, $email, $password);
+            // add user to DB and retrieve userid
+            $row = User::add_user($name, $email, $password);
+
+            $_SESSION['userid'] = $row['userid'];
+            setcookie('userid', $row['userid'], time() + 365*24*60*60);
 
             // redirect
-            $this->alert('Welcome to Cherish! Please sign in.', 'success');
-            $this->redirect('user', 'signin');
+            $this->alert('Welcome to Cherish! Please add a child.', 'success');
+            $this->redirect('child', 'add');
           }
         }
       }
@@ -78,9 +86,10 @@
       } else {
 
         // are fields empty?
-        if (!isset($_POST['email']) || empty($_POST['email']) || !isset($_POST['password']) || empty($_POST['password'])) {
+        if (empty($_POST['email']) || empty($_POST['password'])) {
           $this->alert('Please complete all the fields.', 'error');
           $this->build_page('signin');
+          exit();
         } else {
           // save form data
           $email = $_POST['email'];
@@ -91,12 +100,14 @@
         if (!preg_match('/^[a-zA-Z0-9][a-zA-Z0-9\._\-&!?=#]*@/', $email)) {
           $this->alert('Email is invalid.', 'error');
           $this->build_page('signin');
+          exit();
         }
 
         // validate password
         if (!preg_match('/^([a-zA-Z0-9@$!%*#?&]){6,}$/', $password)) {
           $this->alert('Password must be at least 6 characters long and contain letters, numbers, or symbols @$!%*#?&', 'error');
           $this->build_page('signin');
+          exit();
         } else {
 
           // authorize user
@@ -140,12 +151,13 @@
             // redirect sign in
             $this->alert('Profile access denied. Please log in.', 'error');
             $this->redirect('user', 'signin');
+            exit();
           }
 
         } else {
           // form was submitted
           // are fields empty?
-          if (!isset($_POST['name']) || empty($_POST['name']) || !isset($_POST['email']) || empty($_POST['email'])) {
+          if (empty($_POST['name']) || empty($_POST['email'])) {
             $this->alert('Fields cannot be empty.', 'error');
             $this->build_page('profile', $user);
           } elseif ($_POST['name'] === $user->name && $_POST['email'] === $user->email) {
@@ -160,14 +172,14 @@
             if (!preg_match('/^[a-zA-Z\s]+$/', $name)) {
               $this->alert('Name cannot contain numbers or symbols.', 'error');
               $this->build_page('profile', $user);
-              return;
+              exit();
             }
 
             // validate email field
             if (!preg_match('/^[a-zA-Z0-9][a-zA-Z0-9\._\-&!?=#]*@/', $email)) {
               $this->alert('Email is invalid format.', 'error');
               $this->build_page('profile', $user);
-              return;
+              exit();
             }
 
             // check for duplicate email
@@ -177,7 +189,7 @@
               if ($duplicate) {
                 $this->alert('The email address you provided is already in the database.', 'error');
                 $this->build_page('profile', $user);
-                return;
+                exit();
               }
             }
 

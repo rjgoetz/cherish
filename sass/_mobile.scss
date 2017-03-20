@@ -149,7 +149,7 @@ button {
   font-family: $base-font-stack;
 }
 
-input {
+input[type="text"], input[type="email"], input[type="password"] {
   padding: 10px;
   border: 1px solid transparent;
   border-top: none;
@@ -166,10 +166,6 @@ input {
   width: 100%;
 }
 
-.input-file {
-  @extend .visuallyhidden;
-}
-
 .btn {
   @include padding(0.5, 0.5);
   background-color: $green;
@@ -181,7 +177,6 @@ input {
   padding-right: $pad;
   margin: auto;
   text-align: center;
-  width: 50%;
 }
 
 .btn-wide {

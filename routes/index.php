@@ -16,8 +16,13 @@ function get_page($controller, $action) {
        $a = new PhotosController($controller);
        break;
      case 'user':
-       require_once('models/users.php');
+       require_once('models/user.php');
+       require_once('models/child.php');
        $a = new UserController($controller);
+       break;
+     case 'child':
+       require_once('models/child.php');
+       $a = new ChildController($controller);
        break;
   }
 
@@ -29,7 +34,8 @@ function get_page($controller, $action) {
 $controllers = array('home' => ['index', 'error'],
                      'activity' => ['index'],
                      'photos' => ['index'],
-                     'user' => ['signin', 'signup', 'profile', 'logout']);
+                     'user' => ['signin', 'signup', 'profile', 'logout'],
+                     'child' => ['add']);
 
 // find controller and action, retrieve page
 if (array_key_exists($controller, $controllers)) {

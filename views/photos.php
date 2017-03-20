@@ -14,7 +14,7 @@
 
           <div class="form-group">
             <div class="btn l-relative">
-              <i class="material-icons text-white l-absolute">file_upload</i>
+              <i class="material-icons text-white l-absolute l-left">file_upload</i>
               <label for="photo" class="l-no-pad text-white text-center l-block">Photo</label>
             </div>
             <input type="file" class="form-control input-file">

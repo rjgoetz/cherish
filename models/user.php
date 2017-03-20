@@ -43,8 +43,16 @@
       // add user to database
       mysqli_query($dbc, $query);
 
+      // retrieve userid
+      $query = "SELECT userid FROM users WHERE email='$email'";
+
+      // save userid
+      $data = mysqli_query($dbc, $query);
+
       // close db connection
       mysqli_close($dbc);
+
+      return mysqli_fetch_array($data);
     }
 
     public static function auth_user($email, $password) {
@@ -82,7 +90,7 @@
       require('models/db.php');
 
       // build query
-      $query = "SELECT name, email FROM users WHERE userid='$userid'";
+      $query = "SELECT ut.name AS user_name, ut.email, ct.name AS child_name, ct.image FROM users AS ut INNER JOIN kids AS ct USING (userid) WHERE userid='$userid'";
 
       // create data
       $data = mysqli_query($dbc, $query);
@@ -92,10 +100,13 @@
 
       // check user exists
       if (mysqli_num_rows($data) > 0) {
-        $row = mysqli_fetch_array($data);
+        $list = [];
 
-        $user = new User($userid, $row['name'], $row['email']);
-        return $user;
+        while ($row = mysqli_fetch_array($data)) {
+          $list[] = array('user_name' => $row['user_name'], 'email' => $row['email'], 'child_name' => $row['child_name'], 'image' => $row['image']);
+        }
+
+        return $list;
       } else {
         return false;
       }
