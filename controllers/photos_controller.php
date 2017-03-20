@@ -3,8 +3,6 @@
   class PhotosController extends BaseController {
 
     public function index() {
-      // $this->build_page('photos');
-
       // check if logged in
       if (isset($_SESSION['userid']) || isset($_COOKIE['userid'])) {
         $user = User::retrieve_user($_SESSION['userid']);
@@ -28,12 +26,6 @@
             $this->alert('Please choose a kid to tag in your photo.', 'error');
             $this->redirect('photos', 'index');
           } else {
-            // save data
-            $kids = [];
-            foreach ($_POST['kids'] as $kid) {
-              $kids[] = $kid;
-            }
-
             // image variables
             $upload_path = 'public/img/';
             $max_size = 250000;
@@ -49,9 +41,8 @@
                 // move image to img folder
                 move_uploaded_file($_FILES['photo']['tmp_name'], $image_target);
 
-                foreach ($kids as $kid) {
-                  Photo::add_photo($image_name, $kid);
-                }
+                // add photo to db
+                Photo::add_photo($image_name, $_SESSION['userid']);
 
                 $this->alert('Photo added successfully.', 'success');
                 $this->redirect('photos', 'index');

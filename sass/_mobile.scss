@@ -73,11 +73,20 @@ a {
 
 .panel-header {
   height: $base-line-height*2em;
-  p {
+  p, i {
     @include padding(0.5, 0);
     display: inline-block;
     margin: 0 $pad;
   }
+  i {
+    margin: 0
+  }
+}
+
+.panel-header-active {
+  @extend .panel-header;
+  background-color: $green;
+  color: $white;
 }
 
 .panel-comments, .panel-action {

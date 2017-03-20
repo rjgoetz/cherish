@@ -6,14 +6,17 @@
   </div>
 </div>
 
+<?php
+  foreach ($data as $photo) {
+?>
 <div class="panel">
   <div class="panel-header clearfix">
     <!-- <div class="profile-thb l-float-left"></div> -->
-    <p class="text-bold text-sm l-float-left">Harold</p>
-    <p class="text-xs text-grey l-float-right">March 14, 2017</p>
+    <p class="text-bold text-sm l-float-left"><?php echo $photo->child; ?></p>
+    <p class="text-xs text-grey l-float-right"><?php echo $photo->date; ?></p>
   </div>
   <div class="panel-body l-pad-bottom">
-    <img class="img-responsive" src="public/img/harold-lake-superior.jpg" alt="Harold Lake Superior">
+    <img class="img-responsive" src="public/img/<?php echo $photo->image; ?>" alt="<?php echo $photo->child; ?>">
     <div class="panel-action l-pad-top">
       <i class="material-icons active">favorite</i>
       <i class="material-icons">chat_bubble_outline</i>
@@ -24,21 +27,18 @@
     </div>
   </div>
 </div>
-
+<?php
+  }
+  if (!$data) {
+?>
 <div class="panel">
-  <div class="panel-header clearfix">
-    <!-- <div class="profile-thb l-float-left"></div> -->
-    <p class="text-bold text-sm l-float-left">Lewis</p>
-    <p class="text-xs text-grey l-float-right">February 2, 2017</p>
-  </div>
-  <div class="panel-body l-pad-bottom">
-    <img class="img-responsive" src="public/img/lewis-7-months.jpg" alt="Harold Lake Superior">
-    <div class="panel-action l-pad-top">
-      <i class="material-icons">favorite_border</i>
-      <i class="material-icons">chat_bubble_outline</i>
+  <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=photos&action=index'; ?>">
+    <div class="panel-header-active clearfix">
+      <p class="text-bold text-sm l-float-left">Add your first photo!</p>
+      <i class="text-green material-icons l-float-right">chevron_right</i>
     </div>
-    <div class="panel-comments">
-      <p><span class="text-bold">RJ&nbsp;&nbsp;</span>Lewis -- such happy dude!</p>
-    </div>
-  </div>
+  </a>
 </div>
+<?php
+  }
+?>
