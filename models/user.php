@@ -90,7 +90,7 @@
       require('models/db.php');
 
       // build query
-      $query = "SELECT ut.name AS user_name, ut.email, ct.name AS child_name, ct.image FROM users AS ut INNER JOIN kids AS ct USING (userid) WHERE userid='$userid'";
+      $query = "SELECT ut.name AS user_name, ut.email, ct.name AS child_name, ct.image, ct.childid FROM users AS ut INNER JOIN kids AS ct USING (userid) WHERE userid='$userid'";
 
       // create data
       $data = mysqli_query($dbc, $query);
@@ -103,7 +103,7 @@
         $list = [];
 
         while ($row = mysqli_fetch_array($data)) {
-          $list[] = array('user_name' => $row['user_name'], 'email' => $row['email'], 'child_name' => $row['child_name'], 'image' => $row['image']);
+          $list[] = array('user_name' => $row['user_name'], 'email' => $row['email'], 'child_name' => $row['child_name'], 'childid' => $row['childid'], 'image' => $row['image']);
         }
 
         return $list;

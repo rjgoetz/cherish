@@ -27,6 +27,6 @@ function fadeOut(elm, time) {
 (function flashDisappear() {
   var elm = findElem('flash');
   if (elm) {
-    fadeOut(elm, 3500);
+    fadeOut(elm, 4000);
   }
 })();

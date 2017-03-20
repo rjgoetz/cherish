@@ -7,12 +7,16 @@ function get_page($controller, $action) {
   // cases for different controllers
   switch($controller) {
      case 'home':
+       require_once('models/photo.php');
        $a = new HomeController($controller);
        break;
      case 'activity':
        $a = new ActivityController($controller);
        break;
      case 'photos':
+       require_once('models/user.php');
+       require_once('models/child.php');
+       require_once('models/photo.php');
        $a = new PhotosController($controller);
        break;
      case 'user':

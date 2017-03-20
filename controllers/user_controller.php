@@ -148,9 +148,9 @@
           if ($user) {
             $this->build_page('profile', $user);
           } else {
-            // redirect sign in
-            $this->alert('Profile access denied. Please log in.', 'error');
-            $this->redirect('user', 'signin');
+            // redirect to add child
+            $this->alert('Please add child to complete registration.', 'error');
+            $this->redirect('child', 'add');
             exit();
           }
 

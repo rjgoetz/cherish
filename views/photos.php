@@ -1,24 +1,39 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
+
+      <?php if ($_SESSION['flash']) { echo $_SESSION['flash']; } ?>
+
       <section class="l-pad-top">
 
-        <h2 class="border-bottom">Choose Kids</h2>
+        <h2 class="border-bottom">Tag Kids in Photo</h2>
 
-        <div class="choose-kids-bar">
-          <div class="profile-thb l-float-left"></div>
-          <div class="profile-thb l-float-left"></div>
-        </div>
+        <form action="<?php echo $_SERVER['PHP_SELF'] . '?controller=photos&action=index'; ?>" role="form" method="post" enctype="multipart/form-data">
 
-        <form action="" role="form" method="post" enctype="multipart/form-data">
+          <?php
+            foreach($data as $kid) {
+          ?>
+          <div class="row l-pad-bottom">
+            <div class="col-xs-4">
+              <img class="img-responsive" src="public/img/<?php echo $kid['image']; ?>" alt="<?php echo $kid['child_name']; ?>">
+            </div>
+            <div class="col-xs-8">
+              <div class="form-group">
+                <input type="checkbox" id="kids" name="kids[]" value="<?php echo $kid['childid']; ?>">
+                <label for="kid"><?php echo $kid['child_name']; ?></label>
+              </div>
+            </div>
+          </div>
+          <?php
+            }
+          ?>
 
           <div class="form-group">
-            <div class="btn l-relative">
-              <i class="material-icons text-white l-absolute l-left">file_upload</i>
-              <label for="photo" class="l-no-pad text-white text-center l-block">Photo</label>
-            </div>
-            <input type="file" class="form-control input-file">
+            <label for="photo">Photo</label>
+            <input type="file" id="photo" name="photo">
           </div>
+
+          <button type="submit" name="submitted" class="btn">Add Photo</button>
 
         </form>
       </section>

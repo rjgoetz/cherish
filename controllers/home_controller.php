@@ -3,6 +3,8 @@
 class HomeController extends BaseController {
 
   public function index() {
+
+
     $this->build_page('home');
   }
 

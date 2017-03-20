@@ -6,6 +6,9 @@
 
       <section class="l-pad-top">
 
+        <?php
+          if (!empty($data)) {
+        ?>
         <div class="row l-pad-bottom">
           <div class="col-xs-12">
             <h2 class="border-bottom">My Kids</h2>
@@ -26,6 +29,9 @@
             ?>
           </div>
         </div>
+        <?php
+          }
+        ?>
 
         <h2 class="border-bottom">Add Kid</h2>
 
@@ -46,7 +52,13 @@
         </form>
 
         <div class="l-pad">
-          <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=home&action=index'; ?>" class="btn btn-wide clearfix l-block">Finish<i class="material-icons l-float-right">chevron_right</i></a>
+        <?php
+          if (!empty($data)) {
+        ?>
+          <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=home&action=index'; ?>" class="btn btn-wide clearfix l-block">Finish<i class="material-icons l-float-right">chevron_right</i></a>        
+        <?php
+        }
+        ?>
         </div>
       </section>
 

@@ -8,7 +8,7 @@
 
 <div class="panel">
   <div class="panel-header clearfix">
-    <div class="profile-thb l-float-left"></div>
+    <!-- <div class="profile-thb l-float-left"></div> -->
     <p class="text-bold text-sm l-float-left">Harold</p>
     <p class="text-xs text-grey l-float-right">March 14, 2017</p>
   </div>
@@ -27,7 +27,7 @@
 
 <div class="panel">
   <div class="panel-header clearfix">
-    <div class="profile-thb l-float-left"></div>
+    <!-- <div class="profile-thb l-float-left"></div> -->
     <p class="text-bold text-sm l-float-left">Lewis</p>
     <p class="text-xs text-grey l-float-right">February 2, 2017</p>
   </div>
