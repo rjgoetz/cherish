@@ -26,6 +26,10 @@
             $this->alert('Please choose a kid to tag in your photo.', 'error');
             $this->redirect('photos', 'index');
           } else {
+            // save form data
+            $kids = $_POST['kids'];
+            $comment = $_POST['comment'];
+
             // image variables
             $upload_path = 'public/img/';
             $max_size = 250000;
@@ -42,7 +46,7 @@
                 move_uploaded_file($_FILES['photo']['tmp_name'], $image_target);
 
                 // add photo to db
-                Photo::add_photo($image_name, $_SESSION['userid']);
+                Photo::add_photo($image_name, $_SESSION['userid'], $kids, $comment);                
 
                 $this->alert('Photo added successfully.', 'success');
                 $this->redirect('photos', 'index');

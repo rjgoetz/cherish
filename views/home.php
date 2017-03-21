@@ -8,11 +8,20 @@
 
 <?php
   foreach ($data as $photo) {
+    $kid_tags = explode(",", $photo->child);
 ?>
 <div class="panel">
   <div class="panel-header clearfix">
     <!-- <div class="profile-thb l-float-left"></div> -->
-    <p class="text-bold text-sm l-float-left"><?php echo $photo->child; ?></p>
+    <p class="text-bold text-sm l-float-left">
+    <?php
+      for ($i = 0; $i < count($kid_tags); $i++) {
+        if ($i === count($kid_tags) - 1) {
+          echo $kid_tags[$i];
+        } else {
+          echo $kid_tags[$i] . ', '; }
+        }
+    ?></p>
     <p class="text-xs text-grey l-float-right"><?php echo $photo->date; ?></p>
   </div>
   <div class="panel-body l-pad-bottom">
@@ -21,10 +30,7 @@
       <i class="material-icons active">favorite</i>
       <i class="material-icons">chat_bubble_outline</i>
     </div>
-    <div class="panel-comments">
-      <p><span class="text-bold">Kristen&nbsp;&nbsp;</span>Harold hanging out on the shores of Lake Superior!</p>
-      <p class="text-sm text-grey">2 more comments</p>
-    </div>
+    <?php require_once('views/comments.php'); ?>    
   </div>
 </div>
 <?php

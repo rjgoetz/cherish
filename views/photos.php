@@ -33,6 +33,11 @@
             <input type="file" id="photo" name="photo">
           </div>
 
+          <div class="form-group">
+            <label for="comment">Comment</label>
+            <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+          </div>
+
           <button type="submit" name="submitted" class="btn">Add Photo</button>
 
         </form>

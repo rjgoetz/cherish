@@ -8,6 +8,7 @@ function get_page($controller, $action) {
   require_once('models/user.php');
   require_once('models/child.php');
   require_once('models/photo.php');
+  require_once('models/comments.php');
 
   // cases for different controllers
   switch($controller) {

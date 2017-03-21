@@ -1167,7 +1167,7 @@ button {
   display: block;
   font-family: "Source Sans Pro", sans-serif; }
 
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"], input[type="email"], input[type="password"], textarea {
   padding: 10px;
   border: 1px solid transparent;
   border-top: none;

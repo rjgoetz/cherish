@@ -3,8 +3,7 @@
 class HomeController extends BaseController {
 
   public function index() {
-
-    // if logged in
+    // check if logged in
     if (isset($_SESSION['userid']) || isset($_COOKIE['userid'])) {
       $photos = Photo::all_photos($_SESSION['userid']);
       $this->build_page('home', $photos);
