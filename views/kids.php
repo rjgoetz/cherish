@@ -12,7 +12,7 @@
   ?>
     <div class="col-xs-12">
       <a href="<?php echo $_SERVER['PHP_SELF'] . "?controller=child&action=kid_photos&kid=" . $kid->childid; ?>">
-        <div class="panel">
+        <div class="panel l-margin-bottom">
           <div class="panel-header">
             <p class="text-bold"><?php echo $kid->name; ?></p>
             <i class="material-icons l-float-right">chevron_right</i>

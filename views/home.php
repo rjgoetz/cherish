@@ -10,9 +10,8 @@
   foreach ($data as $photo) {
     $kid_tags = explode(",", $photo->child);
 ?>
-<div class="panel">
+<div class="panel l-margin-bottom">
   <div class="panel-header clearfix">
-    <!-- <div class="profile-thb l-float-left"></div> -->
     <p class="text-bold text-sm l-float-left">
     <?php
       for ($i = 0; $i < count($kid_tags); $i++) {
@@ -40,7 +39,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <div class="panel">
+      <div class="panel l-margin-bottom">
         <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=photos&action=index'; ?>">
           <div class="panel-header-active clearfix">
             <p class="text-bold text-sm l-float-left">Add your first photo!</p>

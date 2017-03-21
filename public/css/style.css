@@ -1018,6 +1018,9 @@ Global Helper & Layout Classes
   padding-bottom: 1.5rem;
   padding-top: 1.5rem; }
 
+.l-margin-bottom {
+  margin-bottom: 1.5em; }
+
 .l-no-pad {
   padding: 0; }
 
@@ -1097,18 +1100,20 @@ a {
 
 .panel {
   background-color: #FFF;
-  box-shadow: 0px 3px 6px -3px rgba(33, 33, 33, 0.39);
-  margin-bottom: 1.5em; }
+  box-shadow: 0px 3px 6px -3px rgba(33, 33, 33, 0.39); }
 
-.panel-header, .panel-header-active {
+.panel-header, .panel-header-dark, .panel-header-active {
   height: 3em; }
-  .panel-header p, .panel-header-active p, .panel-header i, .panel-header-active i {
+  .panel-header p, .panel-header-dark p, .panel-header-active p, .panel-header i, .panel-header-dark i, .panel-header-active i {
     padding-bottom: 0rem;
     padding-top: 0.75rem;
     display: inline-block;
     margin: 0 15px; }
-  .panel-header i, .panel-header-active i {
+  .panel-header i, .panel-header-dark i, .panel-header-active i {
     margin: 0; }
+
+.panel-header-dark {
+  background-color: #F5F5F5; }
 
 .panel-header-active {
   background-color: #00BFA5;

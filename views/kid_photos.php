@@ -2,7 +2,7 @@
   if (!empty($data)) {
 ?>
 <div class="container">
-  <div class="row l-pad">
+  <div class="row l-pad-top">
     <div class="col-xs-12">
       <h2 class="border-bottom"><?php echo $data[0]->child; ?></h2>
     </div>
@@ -12,10 +12,8 @@
     foreach ($data as $photo) {
 ?>
 <div class="panel">
-  <div class="panel-header clearfix">
-    <p class="text-bold text-sm l-float-left">
-    <?php echo $photo->child; ?></p>
-    <p class="text-xs text-grey l-float-right"><?php echo $photo->date; ?></p>
+  <div class="panel-header-dark clearfix">
+    <p class="text-xs l-float-right"><?php echo $photo->date; ?></p>
   </div>
   <div class="panel-body l-pad-bottom">
     <img class="img-responsive" src="public/img/<?php echo $photo->image; ?>" alt="<?php echo $photo->child; ?>">
@@ -28,6 +26,11 @@
 </div>
 <?php
     }
+?>
+<div class="container">
+  <div class="row l-margin-bottom"></div>
+</div>
+<?php
   } else {
 ?>
 <div class="container">
