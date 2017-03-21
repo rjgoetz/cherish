@@ -2,6 +2,24 @@
 
   class ChildController extends BaseController {
 
+    public function index() {
+      $kids = Child::get_kids($_SESSION['userid']);
+
+      if (!empty($kids)) {
+        $this->build_page('kids', $kids);
+      } else {
+        // redirect to add child
+        $this->alert('Please add child to complete registration.', 'error');
+        $this->redirect('child', 'add');
+        exit();
+      }
+    }
+
+    public function kid_photos() {
+      $photos = Photo::kid_photos($_GET['kid']);
+      $this->build_page('kid_photos', $photos);
+    }
+
     public function add() {
       // check form was submitted
       if (!isset($_POST['submitted'])) {

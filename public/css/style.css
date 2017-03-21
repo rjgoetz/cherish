@@ -1187,7 +1187,7 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
   background-color: #00BFA5;
   box-shadow: 0px 3px 6px -1px rgba(33, 33, 33, 0.39);
   color: #FFF;
-  display: block;
+  display: inline-block;
   font-weight: normal;
   padding-left: 15px;
   padding-right: 15px;
@@ -1222,5 +1222,9 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
     width: 100%; }
   .page-footer .active {
     color: #00BFA5; }
+
+.footer-icon {
+  float: left;
+  width: 20%; }
 
 /*# sourceMappingURL=style.css.map */

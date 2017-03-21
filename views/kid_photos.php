@@ -1,27 +1,20 @@
+<?php
+  if (!empty($data)) {
+?>
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 l-pad-bottom">
-      <?php if ($_SESSION['flash']) { echo $_SESSION['flash']; } ?>
+  <div class="row l-pad">
+    <div class="col-xs-12">
+      <h2 class="border-bottom"><?php echo $data[0]->child; ?></h2>
     </div>
   </div>
 </div>
-
 <?php
-  foreach ($data as $photo) {
-    $kid_tags = explode(",", $photo->child);
+    foreach ($data as $photo) {
 ?>
 <div class="panel">
   <div class="panel-header clearfix">
-    <!-- <div class="profile-thb l-float-left"></div> -->
     <p class="text-bold text-sm l-float-left">
-    <?php
-      for ($i = 0; $i < count($kid_tags); $i++) {
-        if ($i === count($kid_tags) - 1) {
-          echo $kid_tags[$i];
-        } else {
-          echo $kid_tags[$i] . ', '; }
-        }
-    ?></p>
+    <?php echo $photo->child; ?></p>
     <p class="text-xs text-grey l-float-right"><?php echo $photo->date; ?></p>
   </div>
   <div class="panel-body l-pad-bottom">
@@ -34,16 +27,16 @@
   </div>
 </div>
 <?php
-  }
-  if (!$data) {
+    }
+  } else {
 ?>
 <div class="container">
-  <div class="row">
+  <div class="row l-pad-top">
     <div class="col-xs-12">
       <div class="panel">
         <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=photos&action=index'; ?>">
           <div class="panel-header-active clearfix">
-            <p class="text-bold text-sm l-float-left">Add your first photo!</p>
+            <p class="text-bold text-sm l-float-left">No photos... add a photo!</p>
             <i class="text-green material-icons l-float-right">chevron_right</i>
           </div>
         </a>

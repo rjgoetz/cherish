@@ -64,4 +64,26 @@
 
       return $photos;
     }
+
+    public static function kid_photos($childid) {
+      // connect db
+      require('models/db.php');
+
+      // build query
+      $query = "SELECT kt.name AS child, pt.image, pt.photoid, EXTRACT(month from date) AS month, EXTRACT(day from date) AS day, EXTRACT(year from date) as year FROM childphotos INNER JOIN photos AS pt USING (photoid) INNER JOIN kids AS kt USING (childid) WHERE childid='$childid' ORDER BY pt.photoid DESC";
+
+      // create data
+      $data = mysqli_query($dbc, $query);
+      $photos = [];
+
+      // loop through data
+      while ($row = mysqli_fetch_array($data)) {
+        $photos[] = new Photo($row['photoid'], $row['image'], $row['month'] . '/' . $row['day'] . '/' . $row['year'], $row['child']);
+      }
+
+      // close db
+      mysqli_close($dbc);
+
+      return $photos;
+    }
   }

@@ -55,7 +55,7 @@
         <?php
           if (!empty($data)) {
         ?>
-          <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=home&action=index'; ?>" class="btn btn-wide clearfix l-block">Finish<i class="material-icons l-float-right">chevron_right</i></a>        
+          <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=home&action=index'; ?>" class="btn btn-wide clearfix l-block">Finish<i class="material-icons l-float-right">chevron_right</i></a>
         <?php
         }
         ?>

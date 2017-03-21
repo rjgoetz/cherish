@@ -47,7 +47,7 @@
           </div>
         </div>
 
-        <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=child&action=add'; ?>" class="btn l-block">Add Kid</a>
+        <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=child&action=add'; ?>" class="btn">Add Kid</a>
       </section>
 
       <div class="l-pad">

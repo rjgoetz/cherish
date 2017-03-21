@@ -38,7 +38,7 @@ $controllers = array('home' => ['index', 'error'],
                      'activity' => ['index'],
                      'photos' => ['index'],
                      'user' => ['signin', 'signup', 'profile', 'logout'],
-                     'child' => ['add']);
+                     'child' => ['index', 'add', 'kid_photos']);
 
 // find controller and action, retrieve page
 if (array_key_exists($controller, $controllers)) {
