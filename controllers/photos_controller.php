@@ -46,7 +46,7 @@
                 move_uploaded_file($_FILES['photo']['tmp_name'], $image_target);
 
                 // add photo to db
-                Photo::add_photo($image_name, $_SESSION['userid'], $kids, $comment);                
+                Photo::add_photo($image_name, $_SESSION['userid'], $kids, $comment, $_SESSION['familyid']);                
 
                 $this->alert('Photo added successfully.', 'success');
                 $this->redirect('photos', 'index');

@@ -3,7 +3,7 @@
   class ChildController extends BaseController {
 
     public function index() {
-      $kids = Child::get_kids($_SESSION['userid']);
+      $kids = Child::get_kids($_SESSION['familyid']);
 
       if (!empty($kids)) {
         $this->build_page('kids', $kids);
@@ -23,7 +23,7 @@
     public function add() {
       // check form was submitted
       if (!isset($_POST['submitted'])) {
-        $kids = Child::get_kids($_SESSION['userid']);
+        $kids = Child::get_kids($_SESSION['familyid']);
         // form not submitted
         $this->build_page('add-child', $kids);
       } else {
@@ -60,8 +60,8 @@
 
             // move image to img folder
             move_uploaded_file($_FILES['photo']['tmp_name'], $image_target);
-
-            Child::add_child($name, $image_name, $_SESSION['userid']);
+            
+            Child::add_child($name, $image_name, $_SESSION['familyid']);
 
             $this->alert($name . ' added successfully.', 'success');
             $this->redirect('child', 'add');

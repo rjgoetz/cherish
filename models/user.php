@@ -5,11 +5,32 @@
     public $userid;
     public $name;
     public $email;
+    public $permid;
 
-    public function __construct($userid, $name, $email) {
+    public function __construct($userid, $name, $email, $permid) {
       $this->userid = $userid;
       $this->name = $name;
       $this->email = $email;
+      $this->permid = $permid;
+    }
+
+    public static function add_user($name, $email, $password) {
+      // connect database
+      require('models/db.php');
+
+      // build query
+      $query = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
+
+      // add user to database
+      mysqli_query($dbc, $query);
+
+      // retrieve userid
+      $userid = mysqli_insert_id($dbc);
+
+      // close db connection
+      mysqli_close($dbc);
+
+      return $userid;
     }
 
     public static function duplicate_user($email) {
@@ -33,28 +54,6 @@
       }
     }
 
-    public static function add_user($name, $email, $password) {
-      // connect database
-      require('models/db.php');
-
-      // build query
-      $query = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
-
-      // add user to database
-      mysqli_query($dbc, $query);
-
-      // retrieve userid
-      $query = "SELECT userid FROM users WHERE email='$email'";
-
-      // save userid
-      $data = mysqli_query($dbc, $query);
-
-      // close db connection
-      mysqli_close($dbc);
-
-      return mysqli_fetch_array($data);
-    }
-
     public static function auth_user($email, $password) {
       // connect database
       require('db.php');
@@ -75,7 +74,7 @@
 
         // verify password
         if (password_verify($password, $row['password'])) {
-          $user = new User($row['userid'], $row['name'], $row['email']);
+          $user = new User($row['userid'], $row['name'], $row['email'], $row['permid']);
           return $user;
         } else {
           return 'unauthorized';
@@ -90,26 +89,19 @@
       require('models/db.php');
 
       // build query
-      $query = "SELECT ut.name AS user_name, ut.email, ct.name AS child_name, ct.image, ct.childid FROM users AS ut INNER JOIN kids AS ct USING (userid) WHERE userid='$userid'";
+      $query = "SELECT * FROM users WHERE userid='$userid'";
 
       // create data
       $data = mysqli_query($dbc, $query);
+      $row = mysqli_fetch_array($data);
+
+      // create user
+      $user = new User($row['userid'], $row['name'], $row['email'], $row['permid']);
 
       // close db connection
       mysqli_close($dbc);
 
-      // check user exists
-      if (mysqli_num_rows($data) > 0) {
-        $list = [];
-
-        while ($row = mysqli_fetch_array($data)) {
-          $list[] = array('user_name' => $row['user_name'], 'email' => $row['email'], 'child_name' => $row['child_name'], 'childid' => $row['childid'], 'image' => $row['image']);
-        }
-
-        return $list;
-      } else {
-        return false;
-      }
+      return $user;
     }
 
     public static function update_user($userid, $name, $email) {

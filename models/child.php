@@ -12,15 +12,15 @@
       $this->image = $image;
     }
 
-    public static function get_kids($userid) {
+    public static function get_kids($familyid) {
       // connect database
       require('models/db.php');
 
       // build query
-      $query = "SELECT * FROM kids WHERE userid='$userid'";
+      $query = "SELECT childid, kt.name AS name, image FROM kids AS kt INNER JOIN family USING (familyid) WHERE familyid='$familyid'";
 
       // get data
-      $data = mysqli_query($dbc, $query) or die('query failed');
+      $data = mysqli_query($dbc, $query);
 
       $kids = [];
 
@@ -34,12 +34,12 @@
       return $kids;
     }
 
-    public static function add_child($name, $image, $userid) {
+    public static function add_child($name, $image, $familyid) {
       // connect database
       require('models/db.php');
 
       // build query
-      $query = "INSERT INTO kids (name, image, userid) VALUES ('$name', '$image', '$userid')";
+      $query = "INSERT INTO kids (name, image, familyid) VALUES ('$name', '$image', '$familyid')";
 
       // add child to db
       mysqli_query($dbc, $query);

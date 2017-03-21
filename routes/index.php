@@ -9,6 +9,8 @@ function get_page($controller, $action) {
   require_once('models/child.php');
   require_once('models/photo.php');
   require_once('models/comments.php');
+  require_once('models/family.php');
+  require_once('models/permissions.php');
 
   // cases for different controllers
   switch($controller) {
@@ -27,6 +29,9 @@ function get_page($controller, $action) {
      case 'child':
        $a = new ChildController($controller);
        break;
+     case 'family':
+       $a = new FamilyController($controller);
+       break;
   }
 
   // run action method
@@ -38,7 +43,8 @@ $controllers = array('home' => ['index', 'error'],
                      'activity' => ['index'],
                      'photos' => ['index'],
                      'user' => ['signin', 'signup', 'profile', 'logout'],
-                     'child' => ['index', 'add', 'kid_photos']);
+                     'child' => ['index', 'add', 'kid_photos'],
+                     'family' => ['index', 'create', 'join']);
 
 // find controller and action, retrieve page
 if (array_key_exists($controller, $controllers)) {

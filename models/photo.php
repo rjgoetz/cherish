@@ -14,12 +14,12 @@
       $this->child = $child;
     }
 
-    public static function add_photo($image, $userid, $kids, $comment) {
+    public static function add_photo($image, $userid, $kids, $comment, $familyid) {
       // connect db
       require('models/db.php');
 
       // build query
-      $query = "INSERT INTO photos (image, userid) VALUES ('$image', '$userid')";
+      $query = "INSERT INTO photos (image, familyid) VALUES ('$image', '$familyid')";
 
       // insert into photos db
       mysqli_query($dbc, $query);
@@ -47,7 +47,7 @@
       require('models/db.php');
 
       // build query
-      $query = "SELECT pt.photoid, pt.image, EXTRACT(month from date) AS month, EXTRACT(day from date) AS day, EXTRACT(year from date) as year, GROUP_CONCAT(kt.name) AS child FROM photos AS pt INNER JOIN childphotos USING (photoid) INNER JOIN kids AS kt USING (childid) WHERE pt.userid='$userid' GROUP BY pt.photoid ORDER BY pt.photoid DESC";
+      $query = "SELECT pt.photoid, pt.image, EXTRACT(month from date) AS month, EXTRACT(day from date) AS day, EXTRACT(year from date) as year, GROUP_CONCAT(kt.name) AS child FROM family INNER JOIN photos AS pt USING (familyid) INNER JOIN childphotos USING (photoid) INNER JOIN kids AS kt USING (childid) WHERE userid='$userid' GROUP BY pt.photoid ORDER BY pt.photoid DESC";
 
       // create data
       $data = mysqli_query($dbc, $query);

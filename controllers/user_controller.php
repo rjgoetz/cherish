@@ -64,14 +64,13 @@
             $password = password_hash($password, PASSWORD_BCRYPT, $options);
 
             // add user to DB and retrieve userid
-            $row = User::add_user($name, $email, $password);
+            $userid = User::add_user($name, $email, $password);
 
-            $_SESSION['userid'] = $row['userid'];
-            setcookie('userid', $row['userid'], time() + 365*24*60*60);
+            $_SESSION['userid'] = $userid;
+            setcookie('userid', $userid, time() + 365*24*60*60);
 
             // redirect
-            $this->alert('Welcome to Cherish! Please add a child.', 'success');
-            $this->redirect('child', 'add');
+            $this->redirect('family', 'index');
           }
         }
       }
@@ -123,9 +122,14 @@
               $this->build_page('signin');
               break;
             default:
+              // retrieve familyid
+              $familyid = Permissions::get_familyid($user->permid);
+
               // set session and cookie data
               $_SESSION['userid'] = $user->userid;
+              $_SESSION['familyid'] = $familyid;
               setcookie('userid', $user->userid, time() + 365*24*60*60);
+              setcookie('familyid', $familyid, time() + 365*24*60*60);
 
               // redirect user home
               $this->alert('You successfully signed in.', 'success');
@@ -221,8 +225,11 @@
         $_SESSION = array();
 
         if (isset($_COOKIE['userid'])) {
-          // setcookie to expire
           setcookie('userid', '', 1);
+        }
+
+        if (isset($_COOKIE['permid'])) {
+          setcookie('permid', '', 1);
         }
 
         // redirect to sign in
