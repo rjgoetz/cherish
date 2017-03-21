@@ -47,7 +47,7 @@
       require('models/db.php');
 
       // build query
-      $query = "SELECT pt.photoid, pt.image, EXTRACT(month from date) AS month, EXTRACT(day from date) AS day, EXTRACT(year from date) as year, GROUP_CONCAT(kt.name) AS child FROM photos AS pt INNER JOIN childphotos USING (photoid) INNER JOIN kids AS kt USING (childid) WHERE pt.userid='$userid' GROUP BY pt.photoid";
+      $query = "SELECT pt.photoid, pt.image, EXTRACT(month from date) AS month, EXTRACT(day from date) AS day, EXTRACT(year from date) as year, GROUP_CONCAT(kt.name) AS child FROM photos AS pt INNER JOIN childphotos USING (photoid) INNER JOIN kids AS kt USING (childid) WHERE pt.userid='$userid' GROUP BY pt.photoid ORDER BY pt.photoid DESC";
 
       // create data
       $data = mysqli_query($dbc, $query);

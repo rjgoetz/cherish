@@ -30,7 +30,7 @@
       <i class="material-icons active">favorite</i>
       <i class="material-icons">chat_bubble_outline</i>
     </div>
-    <?php require_once('views/comments.php'); ?>    
+    <?php require('views/comments.php'); ?>    
   </div>
 </div>
 <?php
