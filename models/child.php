@@ -17,7 +17,18 @@
       require('models/db.php');
 
       // build query
-      $query = "SELECT childid, kt.name AS name, image FROM kids AS kt INNER JOIN family USING (familyid) WHERE familyid='$familyid'";
+      if (gettype($familyid) === 'array') {        
+        $query = "SELECT childid, name, image FROM kids WHERE ";
+        for ($i = 0; $i < count($familyid); $i++) {
+          if ($i === count($familyid) - 1) {
+            $query .= ' familyid=' . $familyid[$i]->familyid .'';
+          } else {
+            $query .= ' familyid=' . $familyid[$i]->familyid . ' OR';
+          }
+        }
+      } else {
+        $query = "SELECT childid, name, image FROM kids WHERE familyid='$familyid'";
+      }
 
       // get data
       $data = mysqli_query($dbc, $query);

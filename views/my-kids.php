@@ -5,8 +5,9 @@
 
       <?php
         // get kids data
-        $kids = Child::get_kids($_SESSION['familyid']);
-        
+        $adminid = Permissions::get_adminid($_SESSION['userid']);
+        $kids = Child::get_kids($adminid);
+
         foreach($kids as $kid) {
       ?>
       <div class="row l-pad-top">

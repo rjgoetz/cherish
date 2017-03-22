@@ -27,26 +27,17 @@
     public function build_page($page, $data = false) {
       require_once('views/header.php');
 
-      // check logged in
       if (isset($_SESSION['userid']) || isset($_COOKIE['userid'])) {
-        // check registration status
-        $status = User::register_status($_SESSION['userid']);
-
-        if (isset($status)) {
-          require_once('views/' . $page . '.php');
-          require_once('views/footer.php');
-        } else {
-          require_once('views/family-account.php');
-        }
-
+        // logged in
+        require_once('views/' . $page . '.php');
+        require_once('views/footer.php');
       } else {
-
+        // not logged in
         if ($page === 'signup') {
           require_once('views/signup.php');
         } else {
           require_once('views/signin.php');
         }
-
       }
 
       // unset flash from session

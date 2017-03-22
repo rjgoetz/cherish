@@ -42,7 +42,7 @@
       <div class="panel l-margin-bottom">
         <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=photos&action=index'; ?>">
           <div class="panel-header-active clearfix">
-            <p class="l-float-left">Add your first photo!</p>
+            <p class="l-float-left">Add a photo!</p>
             <i class="text-green material-icons l-float-right">chevron_right</i>
           </div>
         </a>

@@ -15,12 +15,12 @@
           ?>
           <div class="row l-pad-bottom">
             <div class="col-xs-4">
-              <img class="img-responsive" src="public/img/<?php echo $kid['image']; ?>" alt="<?php echo $kid['child_name']; ?>">
+              <img class="img-responsive" src="public/img/<?php echo $kid->image; ?>" alt="<?php echo $kid->name; ?>">
             </div>
             <div class="col-xs-8">
               <div class="form-group">
-                <input type="checkbox" id="kids" name="kids[]" value="<?php echo $kid['childid']; ?>">
-                <label for="kid"><?php echo $kid['child_name']; ?></label>
+                <input type="checkbox" id="kids" name="kids[]" value="<?php echo $kid->childid; ?>">
+                <label for="kid"><?php echo $kid->name; ?></label>
               </div>
             </div>
           </div>

@@ -42,12 +42,22 @@
       mysqli_close($dbc);
     }
 
-    public static function all_photos($userid) {
+    public static function all_photos($familyid) {
       // connect db
       require('models/db.php');
 
       // build query
-      $query = "SELECT pt.photoid, pt.image, EXTRACT(month from date) AS month, EXTRACT(day from date) AS day, EXTRACT(year from date) as year, GROUP_CONCAT(kt.name) AS child FROM family INNER JOIN photos AS pt USING (familyid) INNER JOIN childphotos USING (photoid) INNER JOIN kids AS kt USING (childid) WHERE userid='$userid' GROUP BY pt.photoid ORDER BY pt.photoid DESC";
+      $query = "SELECT pt.photoid, pt.image, EXTRACT(month from date) AS month, EXTRACT(day from date) AS day, EXTRACT(year from date) as year, GROUP_CONCAT(kt.name) AS child FROM photos AS pt INNER JOIN childphotos USING (photoid) INNER JOIN kids AS kt USING (childid) WHERE";
+
+      for ($i = 0; $i < count($familyid); $i++) {
+        if ($i === count($familyid) - 1) {
+          $query .= ' pt.familyid=' . $familyid[$i]->familyid . '';
+        } else {
+          $query .= ' pt.familyid=' . $familyid[$i]->familyid . ' OR';
+        }
+      }
+
+      $query .= ' GROUP BY pt.photoid ORDER BY pt.photoid DESC';
 
       // create data
       $data = mysqli_query($dbc, $query);

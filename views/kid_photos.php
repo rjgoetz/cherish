@@ -27,8 +27,17 @@
 <?php
     }
 ?>
-<div class="container">
-  <div class="row l-margin-bottom"></div>
+<div class="row l-margin">
+  <div class="col-xs-12">
+    <div class="panel">
+      <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=child&action=index'; ?>">
+        <div class="panel-header-active clearfix">
+          <p>All Kids</p>
+          <i class="text-green material-icons l-float-left">chevron_left</i>
+        </div>
+      </a>
+    </div>
+  </div>
 </div>
 <?php
   } else {
@@ -37,10 +46,10 @@
   <div class="row l-pad-top">
     <div class="col-xs-12">
       <div class="panel">
-        <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=photos&action=index'; ?>">
+        <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=child&action=index'; ?>">
           <div class="panel-header-active clearfix">
-            <p class="text-bold text-sm l-float-left">No photos... add a photo!</p>
-            <i class="text-green material-icons l-float-right">chevron_right</i>
+            <p>No photos...</p>
+            <i class="text-green material-icons l-float-left">chevron_left</i>
           </div>
         </a>
       </div>

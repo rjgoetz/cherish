@@ -87,6 +87,16 @@ a {
   background-color: $lt-grey;
 }
 
+.panel-button {
+  color: $white;
+  height: $base-line-height*2em;
+  background-color: $green;
+  width: 100%;
+  p {
+    margin: 0 $pad;
+  }
+}
+
 .panel-header-active {
   @extend .panel-header;
   background-color: $green;

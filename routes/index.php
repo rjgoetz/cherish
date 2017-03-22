@@ -17,6 +17,9 @@ function get_page($controller, $action) {
      case 'home':
        $a = new HomeController($controller);
        break;
+     case 'register':
+       $a = new RegisterController($controller);
+       break;
      case 'activity':
        $a = new ActivityController($controller);
        break;
@@ -40,11 +43,12 @@ function get_page($controller, $action) {
 
 // list of controllers and actions
 $controllers = array('home' => ['index', 'error'],
+                     'register' => ['signup', 'family', 'kids'],
                      'activity' => ['index'],
                      'photos' => ['index'],
                      'user' => ['signin', 'signup', 'profile', 'logout'],
                      'child' => ['index', 'add', 'kid_photos'],
-                     'family' => ['index', 'create', 'join']);
+                     'family' => ['index', 'join']);
 
 // find controller and action, retrieve page
 if (array_key_exists($controller, $controllers)) {

@@ -21,7 +21,7 @@
           <button type="submit" class="btn" name="submitted">Sign In</button>
         </form>
 
-        <p><a href="<?php echo $_SERVER['PHP_SELF'] . '?&controller=user&action=signup'; ?>">Don't have an account?<span class="l-block text-bold">Sign up here.</span></a></p>
+        <p><a href="<?php echo $_SERVER['PHP_SELF'] . '?&controller=register&action=signup'; ?>">Don't have an account?<span class="l-block text-bold">Sign up here.</span></a></p>
       </section>
 
     </div>

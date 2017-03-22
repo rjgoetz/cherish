@@ -35,7 +35,7 @@
 
         <h2 class="border-bottom">Add Kid</h2>
 
-        <form action="<?php $_SERVER['PHP_SELF'] . '?controller=child&action=add'; ?>" method="post" role="form" enctype="multipart/form-data">
+        <form action="<?php $_SERVER['PHP_SELF'] . '?controller=register&action=kids'; ?>" method="post" role="form" enctype="multipart/form-data">
 
           <div class="form-group">
             <label for="name" class="l-block">Name</label>

@@ -5,15 +5,18 @@
     public function index() {
       // check if logged in
       if (isset($_SESSION['userid']) || isset($_COOKIE['userid'])) {
-        $user = User::retrieve_user($_SESSION['userid']);
+        // get adminid
+        $adminid = Permissions::get_adminid($_SESSION['userid']);
 
         // form was not submitted
         if (!isset($_POST['submitted'])) {
 
-          if ($user) {
-            $this->build_page('photos', $user);
+          if ($adminid) {
+            // get kids
+            $kids = Child::get_kids($adminid);
+            $this->build_page('photos', $kids);
           } else {
-            // redirect to add child
+            // redirect to create family account
             $this->alert('Please add child to complete registration.', 'error');
             $this->redirect('child', 'add');
             exit();
@@ -46,7 +49,7 @@
                 move_uploaded_file($_FILES['photo']['tmp_name'], $image_target);
 
                 // add photo to db
-                Photo::add_photo($image_name, $_SESSION['userid'], $kids, $comment, $_SESSION['familyid']);                
+                Photo::add_photo($image_name, $_SESSION['userid'], $kids, $comment, $adminid);
 
                 $this->alert('Photo added successfully.', 'success');
                 $this->redirect('photos', 'index');

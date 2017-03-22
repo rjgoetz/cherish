@@ -27,14 +27,6 @@
 
       <?php require_once('views/my-kids.php'); ?>
 
-      <section class="l-pad">
-        <div class="row l-pad-bottom">
-          <div class="col-xs-12">
-            <h2 class="border-bottom">My Family</h2>
-          </div>
-        </div>
-      </section>
-
       <div class="l-pad">
         <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=user&action=logout'; ?>" class="btn btn-wide clearfix l-block"><i class="material-icons l-float-right">exit_to_app</i>Log Out</a>
       </div>

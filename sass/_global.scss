@@ -105,6 +105,15 @@ Global Helper & Layout Classes
   @include padding(1, 1);
 }
 
+.l-margin {
+  margin-bottom: $base-line-height*1em;
+  margin-top: $base-line-height*1em;
+}
+
+.l-margin-top {
+  margin-top: $base-line-height*1em;
+}
+
 .l-margin-bottom {
   margin-bottom: $base-line-height*1em;
 }

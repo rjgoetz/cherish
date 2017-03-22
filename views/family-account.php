@@ -7,25 +7,26 @@
       <section class="l-pad-top">
         <h2 class="border-bottom l-margin-bottom">Family Account Setup</h2>
 
-        <div class="panel">
-          <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=family&action=create'; ?>">
-            <div class="panel-header-active clearfix">
+        <form action="<?php echo $_SERVER['PHP_SELF'] . '?controller=register&action=family&account=create'; ?>" role="form" method="post">
+          <div class="panel">
+            <button class="panel-button clearfix" type="submit" name="submitted">
               <p class="l-float-left">Create a New Family Account</p>
               <i class="text-green material-icons l-float-right">chevron_right</i>
-            </div>
-          </a>
-        </div>
+            </button>
+          </div>
+        </form>
 
-        <p class="text-bold text-center l-pad">or</p>
+        <p class="text-bold text-center">or</p>
 
-        <div class="panel l-margin-bottom">
-          <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=family&action=index'; ?>">
-            <div class="panel-header-active clearfix">
+        <form action="<?php echo $_SERVER['PHP_SELF'] . '?controller=register&action=family&account=join'; ?>" role="form" method="post">
+          <div class="panel">
+            <button class="panel-button clearfix" type="submit" name="submitted">
               <p class="l-float-left">Join an Existing Family Account</p>
               <i class="text-green material-icons l-float-right">chevron_right</i>
-            </div>
-          </a>
-        </div>
+            </button>
+          </div>
+        </form>
+
       </section>
 
     </div>

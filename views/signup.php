@@ -7,7 +7,7 @@
       <section class="l-pad-top">
         <h2 class="border-bottom">Sign up</h2>
 
-        <form action="<?php echo $_SERVER['PHP_SELF'] . '?controller=user&action=signup'; ?>" method="post" role="form">
+        <form action="<?php echo $_SERVER['PHP_SELF'] . '?controller=register&action=signup'; ?>" method="post" role="form">
           <div class="form-group">
             <label for="name" class="l-block">Name</label>
             <input type="text" id="name" name="name" value="<?php echo $_POST['name']; ?>" class="form-control">
