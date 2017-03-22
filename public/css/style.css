@@ -1164,9 +1164,7 @@ a {
   .activity p {
     line-height: 1.4;
     margin: 0;
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 66%; }
+    width: 75%; }
   .activity img {
     height: 3em;
     width: auto; }
