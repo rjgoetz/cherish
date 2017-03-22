@@ -30,13 +30,15 @@
       if (isset($_SESSION['userid']) || isset($_COOKIE['userid'])) {
         // logged in
         require_once('views/' . $page . '.php');
-        require_once('views/footer.php');
+        require_once('views/footer-nav.php');
       } else {
         // not logged in
         if ($page === 'signup') {
           require_once('views/signup.php');
+          require_once('views/footer.php');
         } else {
           require_once('views/signin.php');
+          require_once('views/footer.php');
         }
       }
 

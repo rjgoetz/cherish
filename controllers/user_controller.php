@@ -48,14 +48,9 @@
               $this->build_page('signin');
               break;
             default:
-              // retrieve familyid
-              $familyid = Permissions::get_familyid($user->permid);
-
               // set session and cookie data
               $_SESSION['userid'] = $user->userid;
-              $_SESSION['familyid'] = $familyid;
               setcookie('userid', $user->userid, time() + 365*24*60*60);
-              setcookie('familyid', $familyid, time() + 365*24*60*60);
 
               // redirect user home
               $this->alert('You successfully signed in.', 'success');
@@ -151,10 +146,6 @@
 
         if (isset($_COOKIE['userid'])) {
           setcookie('userid', '', 1);
-        }
-
-        if (isset($_COOKIE['permid'])) {
-          setcookie('permid', '', 1);
         }
 
         // redirect to sign in
