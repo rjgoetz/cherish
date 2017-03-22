@@ -120,4 +120,21 @@
       return $data;
     }
 
+    public static function register_status($userid) {
+      // connect db
+      require('models/db.php');
+
+      // build query
+      $query = "SELECT permid FROM users WHERE userid='$userid'";
+
+      // get data
+      $data = mysqli_query($dbc, $query);
+      $row = mysqli_fetch_array($data);
+
+      // close db
+      mysqli_close($dbc);
+
+      return $row['permid'];
+    }
+
   } // end class

@@ -21,58 +21,66 @@
     }
 
     public function add() {
-      // check form was submitted
-      if (!isset($_POST['submitted'])) {
-        $kids = Child::get_kids($_SESSION['familyid']);
-        // form not submitted
-        $this->build_page('add-child', $kids);
-      } else {
+      // check logged in
+      if (isset($_SESSION['userid'])) {
+        // retrieve familyid
+        $familyid = Permissions::get_familyid($_SESSION['userid']);
 
-        // check name field is not empty
-        if (empty($_POST['name'])) {
-          $this->alert('Please complete all the fields.', 'error');
-          $this->redirect('child', 'add');
-          exit();
+        // check form was submitted
+        if (!isset($_POST['submitted'])) {
+          $kids = Child::get_kids($familyid);
+          // form not submitted
+          $this->build_page('add-child', $kids);
         } else {
-          // save form data
-          $name = $_POST['name'];
-
-          // image variables
-          $upload_path = 'public/img/';
-          $max_size = 250000;
-          $image_name = $_FILES['photo']['name'];
-          $image_target = $upload_path . $image_name;
-          $image_type = $_FILES['photo']['type'];
-          $image_size = $_FILES['photo']['size'];
-        }
-
-        // validate name field
-        if (!preg_match('/^[a-zA-Z\s]+$/', $name)) {
-          $this->alert('Name cannot contain numbers or symbols.', 'error');
-          $this->redirect('child', 'add');
-          exit();
-        }
-
-        // validate image
-        if ($image_type == 'image/jpeg' || $image_type == 'image/pjpeg' || $image_type == 'image/png' || $image_type == 'image/gif' && $image_size > 0 && $image_size <= $max_size) {
-
-          if ($_FILES['image']['error'] == 0) {
-
-            // move image to img folder
-            move_uploaded_file($_FILES['photo']['tmp_name'], $image_target);
-            
-            Child::add_child($name, $image_name, $_SESSION['familyid']);
-
-            $this->alert($name . ' added successfully.', 'success');
+          // check name field is not empty
+          if (empty($_POST['name'])) {
+            $this->alert('Please complete all the fields.', 'error');
             $this->redirect('child', 'add');
+            exit();
           } else {
-            $this->alert('Error uploading image.', 'error');
+            // save form data
+            $name = $_POST['name'];
+
+            // image variables
+            $upload_path = 'public/img/';
+            $max_size = 250000;
+            $image_name = $_FILES['photo']['name'];
+            $image_target = $upload_path . $image_name;
+            $image_type = $_FILES['photo']['type'];
+            $image_size = $_FILES['photo']['size'];
+          }
+
+          // validate name field
+          if (!preg_match('/^[a-zA-Z\s]+$/', $name)) {
+            $this->alert('Name cannot contain numbers or symbols.', 'error');
+            $this->redirect('child', 'add');
+            exit();
+          }
+
+          // validate image
+          if ($image_type == 'image/jpeg' || $image_type == 'image/pjpeg' || $image_type == 'image/png' || $image_type == 'image/gif' && $image_size > 0 && $image_size <= $max_size) {
+
+            if ($_FILES['image']['error'] == 0) {
+
+              // move image to img folder
+              move_uploaded_file($_FILES['photo']['tmp_name'], $image_target);
+
+              Child::add_child($name, $image_name, $familyid);
+
+              $this->alert($name . ' added successfully.', 'success');
+              $this->redirect('child', 'add');
+            } else {
+              $this->alert('Error uploading image.', 'error');
+              $this->redirect('child', 'add');
+            }
+          } else {
+            $this->alert('Image type or size error.', 'error');
             $this->redirect('child', 'add');
           }
-        } else {
-          $this->alert('Image type or size error.', 'error');
-          $this->redirect('child', 'add');
         }
+      } else {
+        // redirect to sigin
+        $this->redirect('user', 'signin');
       }
     }
 

@@ -2,14 +2,6 @@
 
   class Family {
 
-    public $familyid;
-    public $userid;
-
-    public function __construct($familyid, $userid) {
-      $this->familyid = $familyid;
-      $this->userid = $userid;
-    }
-
     public static function create_family($userid) {
       // connect db
       require('models/db.php');
@@ -28,8 +20,6 @@
 
       // create admin
       Permissions::admin($userid, $familyid);
-
-      return $familyid;
     }
 
   }

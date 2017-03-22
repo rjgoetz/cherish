@@ -3,15 +3,13 @@
   class UserController extends BaseController {
 
     public function signup() {
-
       // check form was submitted
       if (!isset($_POST['submitted'])) {
-
-        // not submitted
+        // form not submitted
         $this->build_page('signup');
       } else {
-
-        // check fields are not empty
+        // form submitted
+        // check for empty fields
         if (empty($_POST['name']) || empty($_POST['email']) || empty($_POST['password']) || empty($_POST['password2'])) {
           $this->alert('Please complete all the fields.', 'error');
           $this->build_page('signup');
@@ -214,7 +212,6 @@
         }
       } else {
         // not logged in
-        $this->alert('You are not logged in. Please log in.', 'error');
         $this->redirect('user', 'signin');
       }
     }

@@ -1,6 +1,7 @@
 <?php
 
   class Permissions {
+
     public static function admin($userid, $familyid) {
       // connect db
       require('models/db.php');
@@ -24,12 +25,12 @@
       mysqli_close($dbc);
     }
 
-    public static function get_familyid($permid) {
+    public static function get_familyid($userid) {
       // connect db
       require('models/db.php');
 
       // build query
-      $query = "SELECT familyid FROM permissions WHERE permid='$permid'";
+      $query = "SELECT familyid FROM permissions WHERE userid='$userid'";
 
       // get data
       $data = mysqli_query($dbc, $query);
@@ -40,4 +41,5 @@
 
       return $row['familyid'];
     }
+
   }

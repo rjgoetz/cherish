@@ -30,18 +30,23 @@
       // check logged in
       if (isset($_SESSION['userid']) || isset($_COOKIE['userid'])) {
         // check registration status
-        $status = User::register_status($_SESSION['user']);
+        $status = User::register_status($_SESSION['userid']);
 
         if (isset($status)) {
           require_once('views/' . $page . '.php');
           require_once('views/footer.php');
         } else {
-          $this->alert('Please finish registering', 'error');
           require_once('views/family-account.php');
         }
 
       } else {
-        require_once('views/signin.php');
+
+        if ($page === 'signup') {
+          require_once('views/signup.php');
+        } else {
+          require_once('views/signin.php');
+        }
+
       }
 
       // unset flash from session
