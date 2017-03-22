@@ -26,8 +26,23 @@
 
     public function build_page($page, $data = false) {
       require_once('views/header.php');
-      require_once('views/' . $page . '.php');
-      require_once('views/footer.php');
+
+      // check logged in
+      if (isset($_SESSION['userid']) || isset($_COOKIE['userid'])) {
+        // check registration status
+        $status = User::register_status($_SESSION['user']);
+
+        if (isset($status)) {
+          require_once('views/' . $page . '.php');
+          require_once('views/footer.php');
+        } else {
+          $this->alert('Please finish registering', 'error');
+          require_once('views/family-account.php');
+        }
+
+      } else {
+        require_once('views/signin.php');
+      }
 
       // unset flash from session
       unset($_SESSION['flash']);

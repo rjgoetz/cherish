@@ -1,8 +1,5 @@
   </main>
 
-  <?php
-    if (isset($_SERVER['userid']) || isset($_COOKIE['userid'])) {
-  ?>
   <footer class="page-footer clearfix">
     <div class="row">
       <div class="footer-icon">
@@ -32,9 +29,6 @@
       </div>
     </div>
   </footer>
-  <?php
-    }
-  ?>
 
   <script src="public/js/main.js"></script>
 </body>
