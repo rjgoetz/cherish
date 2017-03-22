@@ -39,13 +39,10 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <div class="panel l-margin-bottom">
-        <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=photos&action=index'; ?>">
-          <div class="panel-header-active clearfix">
-            <p class="l-float-left">Add a photo!</p>
-            <i class="text-green material-icons l-float-right">chevron_right</i>
-          </div>
-        </a>
+      <div class="panel">
+        <div class="panel-header">
+          <p>No photos...</p>
+        </div>
       </div>
     </div>
   </div>

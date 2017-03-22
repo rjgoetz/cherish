@@ -164,8 +164,8 @@ class RegisterController extends BaseController
         }
       }
     } else {
-      $this->alert('Administrator access required.', 'error');
-      $this->redirect('user', 'signin');
+      $this->alert('Create or Join a Family Account.', 'error');
+      $this->redirect('register', 'family');
     }
   }
 

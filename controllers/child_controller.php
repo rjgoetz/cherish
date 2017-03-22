@@ -12,8 +12,8 @@
         $this->build_page('kids', $kids);
       } else {
         // redirect to add child
-        $this->alert('Please add child to complete registration.', 'error');
-        $this->redirect('child', 'add');
+        $this->alert('Please add kid to complete registration.', 'error');
+        $this->redirect('register', 'kids');
         exit();
       }
     }

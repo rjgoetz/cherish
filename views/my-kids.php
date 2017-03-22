@@ -8,6 +8,11 @@
         $adminid = Permissions::get_adminid($_SESSION['userid']);
         $kids = Child::get_kids($adminid);
 
+        if (!$kids) {
+      ?>
+      <p>Please add kids to finish registration.</p>
+      <?php
+      } else {
         foreach($kids as $kid) {
       ?>
       <div class="row l-pad-top">
@@ -20,9 +25,10 @@
       </div>
       <?php
         }
+      }
       ?>
     </div>
   </div>
 
-  <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=child&action=add'; ?>" class="btn">Add Kid</a>
+  <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=register&action=kids'; ?>" class="btn">Add Kid</a>
 </section>

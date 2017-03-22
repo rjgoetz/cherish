@@ -47,7 +47,7 @@
             <input type="file" id="photo" name="photo">
           </div>
 
-          <button type="submit" name="submitted" class="btn">Add Child</button>
+          <button type="submit" name="submitted" class="btn">Add Kid</button>
 
         </form>
 

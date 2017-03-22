@@ -17,7 +17,7 @@
       require('models/db.php');
 
       // build query
-      if (gettype($familyid) === 'array') {        
+      if (gettype($familyid) === 'array') {
         $query = "SELECT childid, name, image FROM kids WHERE ";
         for ($i = 0; $i < count($familyid); $i++) {
           if ($i === count($familyid) - 1) {
