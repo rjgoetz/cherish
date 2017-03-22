@@ -27,17 +27,19 @@
 <?php
     }
 ?>
-<div class="row l-margin">
-  <div class="col-xs-12">
-    <div class="panel">
-      <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=child&action=index'; ?>">
-        <div class="panel-header-active clearfix">
-          <p>All Kids</p>
-          <i class="text-green material-icons l-float-left">chevron_left</i>
+<div class="panel l-margin">
+  <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=child&action=index'; ?>">
+    <div class="panel-header-active clearfix">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <p>All Kids</p>
+            <i class="text-green material-icons l-float-left">chevron_left</i>
+          </div>
         </div>
-      </a>
+      </div>
     </div>
-  </div>
+  </a>
 </div>
 <?php
   } else {

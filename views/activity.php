@@ -21,13 +21,11 @@
         }
         if (!$data) {
       ?>
-      <div class="container l-pad-top">
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="panel">
-              <div class="panel-header">
-                <p>No comments...</p>
-              </div>
+      <div class="row l-pad-top">
+        <div class="col-xs-12">
+          <div class="panel">
+            <div class="panel-header">
+              <p>No comments...</p>
             </div>
           </div>
         </div>
