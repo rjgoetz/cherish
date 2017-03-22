@@ -46,8 +46,8 @@ $controllers = array('home' => ['index', 'error'],
                      'register' => ['signup', 'family', 'kids'],
                      'activity' => ['index'],
                      'photos' => ['index'],
-                     'user' => ['signin', 'signup', 'profile', 'logout'],
-                     'child' => ['index', 'add', 'kid_photos'],
+                     'user' => ['signin', 'profile', 'logout'],
+                     'child' => ['index', 'kid_photos'],
                      'family' => ['index', 'join']);
 
 // find controller and action, retrieve page
