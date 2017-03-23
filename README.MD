@@ -5,13 +5,14 @@
 * Create an account
 * Add a child
 * Post photos and tag
-* Invite family, set permissions
-* Like and comment
-* Send notifications
+* View all photos or just by child
 
 ### Technology:
 * HTML / CSS / SASS
-* JS / AJAX
+* JS
 * PHP
 * MySQL
 * Heroku
+
+### Live:
+[Cherish on Heroku](http://cherishphotos.herokuapp.com)
