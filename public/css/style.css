@@ -992,7 +992,8 @@ Global Helper & Layout Classes
   text-align: center; }
 
 .border-bottom {
-  border-bottom: 1px solid #BDBDBD; }
+  border-bottom: 1px solid #BDBDBD;
+  margin-bottom: 0.35em; }
 
 .l-block {
   display: block; }
@@ -1047,8 +1048,12 @@ body {
   font-size: inherit; }
 
 main {
-  padding-bottom: 3rem;
+  padding-bottom: 0rem;
   padding-top: 3rem; }
+
+footer {
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem; }
 
 h1 {
   font-size: 1.875em;
@@ -1105,9 +1110,15 @@ a {
 .alert-success {
   background-color: #00BFA5; }
 
-.panel {
+.panel, .panel-no-margin {
   background-color: #FFF;
-  box-shadow: 0px 3px 6px -3px rgba(33, 33, 33, 0.39); }
+  box-shadow: 0px 3px 6px -3px rgba(33, 33, 33, 0.39);
+  margin-left: -15px;
+  margin-right: -15px; }
+
+.panel-no-margin {
+  margin-left: 0;
+  margin-right: 0; }
 
 .panel-header, .panel-header-dark, .panel-header-active {
   height: 3em; }
@@ -1223,26 +1234,70 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
   .choose-kids-bar div {
     margin-right: 10px; }
 
-.page-footer {
+.page-nav {
   background-color: #37474F;
   bottom: 0;
   box-shadow: 0px -2px 4px -2px #BDBDBD;
   height: 3em;
   position: fixed;
   width: 100%; }
-  .page-footer .footer-link {
+  .page-nav .footer-link {
     width: 25%; }
-  .page-footer i {
+  .page-nav i {
     color: #FFF;
     padding-top: 8px;
     font-size: 32px;
     text-align: center;
     width: 100%; }
-  .page-footer .active {
+  .page-nav .active {
     color: #00BFA5; }
 
-.footer-icon {
+.nav-icon {
   float: left;
   width: 20%; }
+
+@media screen and (min-width: 600px) {
+  .l-pad-bottom {
+    padding-bottom: 3em; }
+
+  .l-pad-top {
+    padding-top: 3em; }
+
+  .l-margin-bottom {
+    margin-bottom: 3em; }
+
+  main {
+    padding-bottom: 0rem;
+    padding-top: 3rem; }
+
+  .page-header {
+    z-index: 200; }
+
+  .page-nav {
+    background-color: #F5F5F5;
+    border-bottom: 1px solid #BDBDBD;
+    bottom: initial;
+    box-shadow: none;
+    position: static;
+    height: 4.5em;
+    top: 3em;
+    z-index: 100; }
+    .page-nav i {
+      color: #BDBDBD;
+      padding-top: 21px; }
+
+  .panel, .panel-no-margin {
+    margin-left: 0;
+    margin-right: 0; }
+
+  .activity {
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem; }
+    .activity p {
+      width: 80%; }
+    .activity img {
+      height: 4.5em; }
+    .activity:first-of-type {
+      margin-top: 1.5em; } }
 
 /*# sourceMappingURL=style.css.map */

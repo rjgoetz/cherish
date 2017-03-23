@@ -29,8 +29,9 @@
 
       if (isset($_SESSION['userid']) || isset($_COOKIE['userid'])) {
         // logged in
+        require_once('views/navigation.php');
         require_once('views/' . $page . '.php');
-        require_once('views/footer-nav.php');
+        require_once('views/footer.php');
       } else {
         // not logged in
         if ($page === 'signup') {

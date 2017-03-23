@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-12 col-xs2-10 col-offset-xs2-1">
 
       <?php
         foreach ($data as $comment) {
@@ -23,7 +23,7 @@
       ?>
       <div class="row l-pad-top">
         <div class="col-xs-12">
-          <div class="panel">
+          <div class="panel-no-margin">
             <div class="panel-header">
               <p>No comments...</p>
             </div>
@@ -33,7 +33,6 @@
       <?php
         }
       ?>
-
     </div>
   </div>
 </div>

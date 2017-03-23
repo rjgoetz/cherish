@@ -1,0 +1,56 @@
+@media screen and (min-width: $tablet-sm) {
+  // globals
+  .l-pad-bottom {
+    padding-bottom: $base-line-height*2em;
+  }
+
+  .l-pad-top {
+    padding-top: $base-line-height*2em;
+  }
+
+  .l-margin-bottom {
+    margin-bottom: $base-line-height*2em;
+  }
+
+  // page styles
+  main {
+    @include padding(2, 0);
+  }
+
+  .page-header {
+    z-index: 200;
+  }
+
+  .page-nav {
+    background-color: $lt-grey;
+    border-bottom: 1px solid $md-grey;
+    bottom: initial;
+    box-shadow: none;
+    position: static;
+    height: $base-line-height*3em;
+    top: $base-line-height*2em;
+    z-index: 100;
+    i {
+      color: $md-grey;
+      padding-top: 21px;
+    }
+  }
+
+  .panel {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .activity {
+    @include padding(1, 1);
+    p {
+      width: 80%;
+    }
+    img {
+      height: $base-line-height*3em;
+    }
+    &:first-of-type {
+      margin-top: $base-line-height*1em;
+    }
+  }
+}

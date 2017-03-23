@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-12 col-xs2-8 col-offset-xs2-2">
 
       <?php if ($_SESSION['flash']) { echo $_SESSION['flash']; } ?>
 
@@ -34,7 +34,7 @@
           </div>
 
           <div class="form-group">
-            <label for="comment">Comment</label>
+            <label for="comment" class="l-block">Comment</label>
             <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
           </div>
 

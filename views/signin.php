@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-12 col-sm-6 col-offset-sm-3">
 
       <?php if ($_SESSION['flash']) { echo $_SESSION['flash']; } ?>
 
@@ -21,7 +21,7 @@
           <button type="submit" class="btn" name="submitted">Sign In</button>
         </form>
 
-        <p><a href="<?php echo $_SERVER['PHP_SELF'] . '?&controller=register&action=signup'; ?>">Don't have an account?<span class="l-block text-bold">Sign up here.</span></a></p>
+        <p class="l-pad-bottom"><a href="<?php echo $_SERVER['PHP_SELF'] . '?&controller=register&action=signup'; ?>">Don't have an account?<span class="l-block text-bold">Sign up here.</span></a></p>
       </section>
 
     </div>
