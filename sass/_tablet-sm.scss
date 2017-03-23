@@ -15,6 +15,7 @@
   // page styles
   main {
     @include padding(2, 0);
+    min-height: 600px;
   }
 
   .page-header {

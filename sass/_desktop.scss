@@ -1,0 +1,19 @@
+@media screen and (min-width: $desktop) {
+  main {
+    min-height: 800px;
+  }
+  .activity {
+    @include padding(1, 1);
+    p {
+      margin-bottom: $base-line-height*1em;
+      width: 100%;
+    }
+    img {
+      height: auto;
+      width: 100%;
+    }
+    &:first-of-type {
+      margin-top: $base-line-height*1em;
+    }
+  }
+}

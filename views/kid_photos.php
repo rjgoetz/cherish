@@ -3,7 +3,7 @@
   if (!empty($data)) {
 ?>
   <div class="row l-pad-top">
-    <div class="col-xs-12 col-sm-10 col-offset-sm-1">
+    <div class="col-xs-12 col-sm-8 col-offset-sm-2 col-md-6 col-offset-md-3 col-lg-4 col-offset-lg-4">
       <h2 class="border-bottom"><?php echo $data[0]->child; ?></h2>
     </div>
   </div>
@@ -11,7 +11,7 @@
     foreach ($data as $photo) {
 ?>
   <div class="row">
-    <div class="col-xs-12 col-sm-10 col-offset-sm-1">
+    <div class="col-xs-12 col-sm-8 col-offset-sm-2 col-md-6 col-offset-md-3 col-lg-4 col-offset-lg-4">
       <div class="panel l-margin-bottom">
         <div class="panel-header-dark clearfix">
           <p class="text-xs l-float-right"><?php echo $photo->date; ?></p>
@@ -31,7 +31,7 @@
     }
 ?>
   <div class="row">
-    <div class="col-xs-12 col-sm-10 col-offset-sm-1">
+    <div class="col-xs-12 col-sm-8 col-offset-sm-2 col-md-6 col-offset-md-3 col-lg-4 col-offset-lg-4">
       <div class="panel l-margin">
         <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=child&action=index'; ?>">
           <div class="panel-header-active clearfix">
@@ -46,7 +46,7 @@
   } else {
 ?>
   <div class="row l-pad-top">
-    <div class="col-xs-12 col-sm-10 col-offset-sm-1">
+    <div class="col-xs-12 col-sm-10 col-offset-sm-1 col-md-6 col-offset-md-3 col-lg-4 col-offset-lg-4">
       <div class="panel-no-margin">
         <a href="<?php echo $_SERVER['PHP_SELF'] . '?controller=child&action=index'; ?>">
           <div class="panel-header-active clearfix">

@@ -1049,7 +1049,8 @@ body {
 
 main {
   padding-bottom: 0rem;
-  padding-top: 3rem; }
+  padding-top: 3rem;
+  min-height: 400px; }
 
 footer {
   padding-bottom: 1.5rem;
@@ -1268,7 +1269,8 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
 
   main {
     padding-bottom: 0rem;
-    padding-top: 3rem; }
+    padding-top: 3rem;
+    min-height: 600px; }
 
   .page-header {
     z-index: 200; }
@@ -1297,6 +1299,21 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
       width: 80%; }
     .activity img {
       height: 4.5em; }
+    .activity:first-of-type {
+      margin-top: 1.5em; } }
+@media screen and (min-width: 1366px) {
+  main {
+    min-height: 800px; }
+
+  .activity {
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem; }
+    .activity p {
+      margin-bottom: 1.5em;
+      width: 100%; }
+    .activity img {
+      height: auto;
+      width: 100%; }
     .activity:first-of-type {
       margin-top: 1.5em; } }
 

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-12 col-sm-8 col-offset-sm-2 col-md-6 col-offset-md-3 col-lg-4 col-offset-lg-4">
 
       <?php if ($_SESSION['flash']) { echo $_SESSION['flash']; } ?>
 

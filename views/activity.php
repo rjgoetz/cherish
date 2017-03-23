@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-xs2-10 col-offset-xs2-1">
+    <div class="col-xs-12 col-xs2-10 col-offset-xs2-1 col-sm-6 col-offset-sm-3 col-lg-2 col-offset-lg-5">
 
       <?php
         foreach ($data as $comment) {

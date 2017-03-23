@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-10 col-offset-sm-1 l-pad-bottom">
+    <div class="col-xs-12 col-sm-10 col-offset-sm-1 col-md-8 col-offset-md-2 col-lg-6 col-offset-lg-3 l-pad-bottom">
       <?php if ($_SESSION['flash']) { echo $_SESSION['flash']; } ?>
     </div>
   </div>
@@ -9,7 +9,7 @@
     $kid_tags = explode(",", $photo->child);
 ?>
   <div class="row">
-    <div class="col-xs-12 col-sm-10 col-offset-sm-1">
+    <div class="col-xs-12 col-sm-10 col-offset-sm-1 col-md-8 col-offset-md-2 col-lg-4 col-offset-lg-4">
       <div class="panel l-margin-bottom">
         <div class="panel-header clearfix">
           <p class="text-bold text-sm l-float-left">
@@ -39,7 +39,7 @@
   if (!$data) {
 ?>
   <div class="row">
-    <div class="col-xs-12 col-xs2-10 col-offset-xs2-1">
+    <div class="col-xs-12 col-xs2-10 col-offset-xs2-1 col-md-8 col-offset-md-2 col-lg-4 col-offset-lg-4">
       <div class="panel-no-margin">
         <div class="panel-header">
           <p>No photos...</p>
